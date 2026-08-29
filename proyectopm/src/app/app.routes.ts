@@ -25,5 +25,9 @@ export const routes: Routes = [
   {
     path: 'navbar',
     loadComponent: () => import('./compartido/navbar/navbar.page').then( m => m.NavbarPage)
+  },  {
+    path: 'footbar',
+    loadComponent: () => import('./compartido/footbar/footbar.page').then( m => m.FootbarPage)
   },
+
 ];

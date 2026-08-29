@@ -1,0 +1,236 @@
+/* ========================================
+   CONTENEDOR PRINCIPAL
+======================================== */
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ========================================
+   PÁGINA
+======================================== */
+
+.ion-page {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+ion-header {
+  position: relative;
+  z-index: 1000;
+}
+
+
+/* ========================================
+   TOOLBAR
+======================================== */
+
+ion-toolbar {
+  --background: #ffffff;
+  --color: #222222;
+
+  height: 65px;
+
+  display: flex;
+  align-items: center;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ========================================
+   BOTÓN DEL MENÚ
+======================================== */
+
+ion-buttons[slot="start"] {
+  display: flex;
+  align-items: center;
+
+  margin-left: 4px;
+}
+
+ion-menu-button {
+  --color: #222222;
+
+  width: 45px;
+  height: 45px;
+}
+
+
+/* ========================================
+   LOGO + TÍTULO
+======================================== */
+
+.titulo-container {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-left: 5px;
+
+  height: 100%;
+}
+
+
+/* LOGO */
+
+.titulo-container img {
+  width: 42px;
+  height: 42px;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+
+/* TÍTULO */
+
+.titulo-container span {
+  font-size: 20px;
+  font-weight: 600;
+
+  color: #222222;
+
+  white-space: nowrap;
+}
+
+
+/* ========================================
+   CAMPANA
+======================================== */
+
+ion-buttons[slot="end"] {
+  display: flex;
+  align-items: center;
+
+  margin-left: auto;
+  margin-right: 30px;
+}
+
+.bi-bell-fill {
+  font-size: 21px;
+
+  color: #222222;
+
+  cursor: pointer;
+
+  transition: transform 0.2s ease;
+}
+
+.bi-bell-fill:hover {
+  transform: scale(1.1);
+}
+
+
+/* ========================================
+   CONTENIDO
+======================================== */
+
+ng-content {
+  display: block;
+
+  flex: 1;
+}
+
+
+/* ========================================
+   MENÚ LATERAL
+======================================== */
+
+ion-menu {
+  --width: 280px;
+}
+
+
+/* HEADER DEL MENÚ */
+
+ion-menu ion-toolbar {
+  --background: #ffffff;
+
+  height: 60px;
+}
+
+
+/* TÍTULO DEL MENÚ */
+
+ion-menu ion-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+
+/* CONTENIDO DEL MENÚ */
+
+ion-menu ion-content {
+  --background: #ffffff;
+}
+
+
+/* ========================================
+   CELULARES
+======================================== */
+
+@media (max-width: 480px) {
+
+  ion-toolbar {
+    height: 60px;
+  }
+
+  .titulo-container {
+    gap: 7px;
+    margin-left: 3px;
+  }
+
+  .titulo-container img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .titulo-container span {
+    font-size: 17px;
+  }
+
+  ion-menu-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .bi-bell-fill {
+    font-size: 19px;
+  }
+
+}
+
+
+/* ========================================
+   PANTALLAS MUY PEQUEÑAS
+======================================== */
+
+@media (max-width: 360px) {
+
+  .titulo-container {
+    gap: 5px;
+  }
+
+  .titulo-container img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .titulo-container span {
+    font-size: 15px;
+  }
+
+}
