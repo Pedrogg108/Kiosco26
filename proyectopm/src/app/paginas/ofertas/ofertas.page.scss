@@ -1,0 +1,161 @@
+ion-header {
+  box-shadow: none;
+}
+
+ion-toolbar {
+  --background: #ffffff;
+  --border-width: 0;
+  padding: 10px 20px;
+}
+
+ion-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+  text-transform: capitalize;
+}
+
+ion-content {
+  --background: #f5f6f8;
+}
+
+/* Filtros */
+.filtros {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+}
+
+.filtros > div {
+  flex: 1;
+  padding: 12px 20px;
+  background: white;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.filtros p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+}
+
+/* Filtro activo */
+.filtros .activos {
+  background: #6956ff;
+}
+
+.filtros .activos p {
+  color: white;
+}
+
+/* Contenedor de ofertas */
+.ofertas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 0 20px 30px;
+}
+
+/* Tarjeta */
+.ofertaCard {
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Imagen + información */
+.ofertaCard > div:first-child {
+  display: flex;
+  gap: 12px;
+}
+
+.ofertaCard img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.ofertaCard h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.ofertaCard p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Fecha y participantes */
+.ofertaCard > div:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.ofertaCard > div:nth-child(2) p {
+  margin: 0;
+}
+
+/* Botón */
+.ofertaCard button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 11px;
+  border: none;
+  border-radius: 10px;
+  background: #6956ff;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ofertaCard button:hover {
+  opacity: 0.9;
+}
+
+/* Celular */
+@media (max-width: 600px) {
+  .ofertas {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 10px 20px;
+  }
+
+  .ofertaCard {
+    padding: 10px;
+  }
+
+  .ofertaCard > div:first-child {
+    flex-direction: column;
+  }
+
+  .ofertaCard img {
+    width: 100%;
+    height: 120px;
+  }
+
+  .ofertaCard h3 {
+    font-size: 15px;
+  }
+
+  .ofertaCard p {
+    font-size: 12px;
+  }
+
+  .ofertaCard button {
+    font-size: 13px;
+    padding: 9px;
+  }
+}

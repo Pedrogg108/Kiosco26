@@ -1,0 +1,388 @@
+/* =========================
+   HEADER
+========================= */
+
+ion-header {
+    box-shadow: none;
+}
+
+ion-toolbar {
+    --background: #ffffff;
+    --border-width: 0;
+    padding: 10px 20px;
+}
+
+ion-title {
+    margin-top: 80px;
+    display: flex;
+    justify-self: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #222;
+}
+
+
+/* =========================
+   CONTENIDO
+========================= */
+
+ion-content {
+    --background: #ffffff;
+}
+
+
+/* =========================
+   PRESENTACIÓN DEL KIOSCO
+========================= */
+
+.head {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    margin: 15px;
+
+    padding: 15px;
+
+    background-color: #dadada;
+
+    border-radius: 20px;
+}
+
+.head img {
+    width: 120px;
+    height: 120px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
+.titulo {
+    flex: 1;
+}
+
+.titulo h2 {
+    margin: 0 0 5px;
+
+    color: #222;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.titulo p {
+    margin: 0;
+
+    color: #555;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================
+   CONTENEDOR INFORMACIÓN
+========================= */
+
+.info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    padding: 0 20px 30px;
+}
+
+
+/* =========================
+   OPCIONES
+========================= */
+
+.info > div {
+    display: flex;
+
+    align-items: center;
+
+    min-height: 70px;
+
+    padding: 12px 15px;
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.info > div:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================
+   ICONOS PRINCIPALES
+========================= */
+
+.info > div > i {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    margin-right: 13px;
+
+    border-radius: 12px;
+
+    background: #eeeaff;
+
+    color: #6956ff;
+
+    font-size: 20px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   TEXTO
+========================= */
+
+.info p {
+    flex: 1;
+
+    margin: 0;
+
+    color: #666;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+}
+
+.info p strong {
+    color: #333;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   FLECHA
+========================= */
+
+.info a {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    text-decoration: none;
+
+    color: #999;
+
+    flex-shrink: 0;
+}
+
+.info a i {
+    font-size: 18px;
+}
+
+.info a:hover {
+    color: #6956ff;
+}
+
+
+/* =========================
+   COLORES DE LOS ICONOS
+========================= */
+
+.info .contacto > i {
+    background: #eeeaff;
+
+    color: #6956ff;
+}
+
+.info .Redes > i {
+    background: #eeeaff;
+
+    color: #6956ff;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    /* Header */
+
+    ion-toolbar {
+        padding: 8px 15px;
+    }
+
+    ion-title {
+        font-size: 24px;
+    }
+
+
+    /* =========================
+       PRESENTACIÓN
+    ========================= */
+
+    .head {
+        gap: 14px;
+
+        margin: 15px;
+
+        padding: 15px;
+
+        border-radius: 17px;
+    }
+
+    .head img {
+        width: 70px;
+        height: 70px;
+
+        border-radius: 13px;
+    }
+
+
+    /* Título */
+
+    .titulo h2 {
+        font-size: 19px;
+    }
+
+    .titulo p {
+        font-size: 12px;
+    }
+
+
+    /* =========================
+       OPCIONES
+    ========================= */
+
+    .info {
+        gap: 10px;
+
+        padding: 0 15px 25px;
+    }
+
+    .info > div {
+        min-height: 62px;
+
+        padding: 10px 12px;
+
+        border-radius: 12px;
+    }
+
+
+    /* Iconos */
+
+    .info > div > i {
+        width: 38px;
+        height: 38px;
+
+        margin-right: 10px;
+
+        font-size: 18px;
+    }
+
+
+    /* Texto */
+
+    .info p {
+        font-size: 12px;
+    }
+
+    .info p strong {
+        font-size: 14px;
+    }
+
+
+    /* Flecha */
+
+    .info a {
+        width: 25px;
+        height: 25px;
+    }
+
+    .info a i {
+        font-size: 16px;
+    }
+}
+
+
+/* =========================
+   PANTALLAS MUY PEQUEÑAS
+========================= */
+
+@media (max-width: 400px) {
+
+    /* Presentación */
+
+    .head {
+        gap: 12px;
+
+        margin: 12px;
+
+        padding: 12px;
+    }
+
+    .head img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .titulo h2 {
+        font-size: 17px;
+    }
+
+    .titulo p {
+        font-size: 11px;
+    }
+
+
+    /* Opciones */
+
+    .info {
+        padding: 0 12px 20px;
+    }
+
+    .info > div > i {
+        width: 35px;
+        height: 35px;
+
+        font-size: 16px;
+    }
+
+    .info p {
+        font-size: 11px;
+    }
+
+    .info p strong {
+        font-size: 13px;
+    }
+}
