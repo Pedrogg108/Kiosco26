@@ -1,0 +1,134 @@
+ion-header {
+  box-shadow: none;
+}
+
+ion-toolbar {
+  --background: #ffffff;
+  --border-width: 0;
+  padding: 10px 20px;
+}
+
+ion-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+}
+
+/* Fondo de la página */
+ion-content {
+  --background: #f5f6f8;
+}
+
+/* Categorías */
+.elementos {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.elementos > div {
+  min-width: 100px;
+  padding: 12px 20px;
+  background: white;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: 0.2s;
+}
+
+.elementos p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+}
+
+.elementos > div:hover {
+  transform: translateY(-2px);
+}
+
+/* Contenedor de las novedades */
+.todo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0 20px 30px;
+}
+
+/* Tarjetas */
+.todo ion-card {
+  margin: 0;
+  border-radius: 15px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s;
+}
+
+.todo ion-card:hover {
+  transform: translateY(-4px);
+}
+
+.todo ion-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.todo ion-card-header {
+  padding: 15px;
+}
+
+.todo ion-card-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.todo ion-card-subtitle {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.todo ion-card-content {
+  padding: 0 15px 20px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+  .todo {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 10px 20px;
+  }
+
+  .todo ion-card img {
+    height: 130px;
+  }
+
+  .todo ion-card-header {
+    padding: 10px;
+  }
+
+  .todo ion-card-title {
+    font-size: 16px;
+  }
+
+  .todo ion-card-subtitle {
+    font-size: 12px;
+  }
+
+  .todo ion-card-content {
+    padding: 0 10px 15px;
+    font-size: 13px;
+  }
+}
+/* Tablets */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .todo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
