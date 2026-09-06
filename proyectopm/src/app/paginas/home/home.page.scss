@@ -210,39 +210,40 @@ h2 {
 
 
   /* =========================
-   CATEGORÍAS EN UNA FILA
-========================= */
+     CATEGORÍAS EN UNA FILA
+  ========================= */
 
-.categorias {
-  width: 95%;
+  .categorias {
+    width: 95%;
 
-  justify-content: space-between;
+    justify-content: space-between;
 
-  gap: 3px;
+    gap: 8px;
 
-  flex-wrap: nowrap;
-}
-
-.novedades,
-.sorteos,
-.ofertas,
-.eventos {
-  width: 96px;
-  height: 96px;
-
-  flex-shrink: 0;
-
-  border-radius: 13px;
-
-  i {
-    font-size: 26px;
-    margin-bottom: 6px;
+    flex-wrap: nowrap;
   }
 
-  p {
-    font-size: 12px;
+  .novedades,
+  .sorteos,
+  .ofertas,
+  .eventos {
+    width: 75px;
+    height: 75px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    i {
+      font-size: 23px;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 11px;
+    }
   }
-}
+
 
   /* =========================
      CARDS EN CELULAR
