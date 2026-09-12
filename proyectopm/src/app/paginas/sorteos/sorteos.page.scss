@@ -1,23 +1,24 @@
-
 /* =========================
    HEADER
 ========================= */
 
 ion-header {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 ion-toolbar {
-    --background: #ffffff;
-    --border-width: 0;
-    padding: 10px 20px;
+  --background: #ffffff;
+  --border-width: 0;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  --min-height: 56px;
 }
 
 ion-title {
-    font-size: 28px;
-    font-weight: 700;
-    color: #222;
-    text-transform: capitalize;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.3px;
 }
 
 
@@ -26,7 +27,17 @@ ion-title {
 ========================= */
 
 ion-content {
-    --background: #f5f6f8;
+  --background: #f4f5f7;
+}
+
+ion-content h1 {
+  margin: 28px 20px 8px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
 }
 
 
@@ -35,504 +46,372 @@ ion-content {
 ========================= */
 
 .filtros {
-    display: flex;
-    gap: 15px;
-    padding: 20px;
+  display: flex;
+  gap: 12px;
+  padding: 16px 20px 20px;
 }
 
 .filtros > div {
-    flex: 1;
-    padding: 12px 20px;
-
-    background: #ffffff;
-    border-radius: 12px;
-
-    text-align: center;
-
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-
-    cursor: pointer;
-    transition: 0.2s;
+  flex: 1;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s ease;
+  overflow: hidden;
 }
 
-.filtros > div:hover {
-    transform: translateY(-2px);
+.filtros > div:active {
+  transform: scale(0.97);
 }
 
-.filtros p {
-    margin: 0;
-
-    font-size: 16px;
-    font-weight: 600;
-
-    color: #222;
-}
-
-
-/* Filtro activo */
-
-.filtros .activos {
-    background: #6956ff;
-}
-
-.filtros .activos p {
-    color: #ffffff;
+.filtros button {
+  width: 100%;
+  padding: 13px 16px;
+  margin: 0;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 600;
+  color: #444;
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
 
-/* =========================
-   CONTENEDOR DE OFERTAS
-========================= */
+/* ===== Estado activo ===== */
+.filtros > div.activo {
+  background: #6956ff;
+  box-shadow: 0 4px 14px rgba(105, 86, 255, 0.35);
+}
 
-.ofertas {
-    display: grid;
-    grid-template-columns: 1fr;
-
-    gap: 15px;
-
-    padding: 0 20px 30px;
-    
-    margin-bottom: 100px;
+.filtros > div.activo button {
+  color: #ffffff;
 }
 
 
 /* =========================
-   TARJETA DE OFERTA
+   CONTENEDOR DE SORTEOS
 ========================= */
 
-.ofertaCard {
-    width: 100%;
+.sorteos {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 20px 40px;
+  margin-bottom: 60px;
 
-    background: #ffffff;
-
-    border-radius: 15px;
-    
-    padding: 15px;
-
-    box-sizing: border-box;
-
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-
-    transition: transform 0.2s;
-}
-
-.ofertaCard:hover {
-    transform: translateY(-3px);
 }
 
 
 /* =========================
-   IMAGEN + INFORMACIÓN
+   TARJETA
 ========================= */
 
-.ofertaCard > div:first-child {
-    display: flex;
-
-    align-items: flex-start;
-
-    gap: 15px;
+.sorteoCard {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 20px;
 }
 
-.ofertaCard img {
-    width: 180px;
-    height: 180px;
-
-    object-fit: cover;
-
-    border-radius: 10px;
-
-    flex-shrink: 0;
+.sorteoCard {
+    animation: aparecerSorteos 0.55s ease;
 }
 
+@keyframes aparecerSorteos {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
 
-/* Contenedor del texto */
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-.ofertaCard > div:first-child > div {
-    flex: 1;
+.sorteoCard:active {
+  transform: scale(0.985);
 }
 
 
 /* =========================
-   SORTEO ACTIVO
+   IMAGEN + TEXTO
 ========================= */
+
+.sorteoCard > div:first-child {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.sorteoCard img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 14px;
+  flex-shrink: 0;
+  background: #f0f0f0;
+}
+
+.sorteoCard > div:first-child > div {
+  flex: 1;
+  min-width: 0; /* evita que el texto desborde */
+}
+
+
+/* Badge "Sorteo activo" */
 
 .sorteo {
-    display: inline-block;
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 4px 12px;
+  background: #eee;
+  color: #444;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
 
-    background-color: #e8e8e8;
 
-    color: #333;
+/* Título */
 
-    padding: 5px 14px;
+.sorteoCard h4 {
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.3;
+}
 
-    margin: 0 0 8px;
 
-    border-radius: 15px;
+/* Descripción */
 
-    font-size: 14px;
-
-    font-weight: 700;
+.sorteoCard > div:first-child > div > p:not(.sorteo) {
+  margin: 0;
+  font-size: 13.5px;
+  color: #666;
+  line-height: 1.45;
 }
 
 
 /* =========================
-   TÍTULO
-========================= */
-
-.ofertaCard h4 {
-    margin: 5px 0 8px;
-
-    color: #333;
-
-    font-size: 20px;
-
-    line-height: 1.2;
-}
-
-
-/* =========================
-   DESCRIPCIÓN
-========================= */
-
-.ofertaCard > div:first-child > div > p:not(.sorteo) {
-    margin: 0;
-
-    color: #666;
-
-    font-size: 15px;
-
-    line-height: 1.4;
-}
-
-
-/* =========================
-   DATOS
+   DATOS (timer + participantes)
 ========================= */
 
 .datos {
-    display: flex;
-
-    align-items: center;
-
-    /* Espacio entre timer y participantes */
-    gap: 40px;
-
-    margin-top: 15px;
-
-    padding-top: 12px;
-
-    border-top: 1px solid #eeeeee;
+  display: flex;
+  gap: 28px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
 }
 
-
-/* =========================
-   TIMER
-========================= */
-
-.timer {
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-}
-
-.timer i {
-    font-size: 20px;
-
-    color: #6956ff;
-}
-
-.timer p {
-    margin: 0;
-
-    color: #666;
-
-    font-size: 13px;
-
-    line-height: 1.3;
-}
-
-.timer strong {
-    color: #333;
-
-    font-size: 14px;
-}
-
-
-/* =========================
-   PARTICIPANTES
-========================= */
-
+.timer,
 .participantes {
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
+.timer i,
 .participantes i {
-    font-size: 20px;
-
-    color: #6956ff;
+  font-size: 18px;
+  color: #6956ff;
 }
 
+.timer p,
 .participantes p {
-    margin: 0;
-
-    color: #666;
-
-    font-size: 13px;
-
-    line-height: 1.3;
+  margin: 0;
+  font-size: 12.5px;
+  color: #777;
+  line-height: 1.35;
 }
 
+.timer strong,
 .participantes strong {
-    color: #333;
-
-    font-size: 14px;
+  color: #222;
+  font-size: 13.5px;
+  font-weight: 700;
 }
 
 
 /* =========================
-   BOTÓN
+   BOTÓN PARTICIPAR
 ========================= */
 
-.ofertaCard button {
-    width: 100%;
-
-    margin-top: 14px;
-
-    padding: 11px;
-
-    border: none;
-
-    border-radius: 10px;
-
-    background: #6956ff;
-
-    color: #ffffff;
-
-    font-size: 15px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: 0.2s;
+.sorteoCard button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: #6956ff;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.15s ease;
 }
 
-.ofertaCard button:hover {
-    opacity: 0.9;
+.sorteoCard button:active {
+  opacity: 0.88;
+  transform: scale(0.98);
 }
+
+.sorteoCard-finalizados{
+    color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.sorteoCard-finalizados {
+    animation: aparecerSorteosFinalizados 0.55s ease;
+}
+
+@keyframes aparecerSorteosFinalizados {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 
 /* =========================
-   CELULAR
+   TABLET / MÓVIL GRANDE
 ========================= */
 
 @media (max-width: 600px) {
 
-    /* Filtros */
+  ion-content h1 {
+    font-size: 26px;
+    margin: 22px 16px 6px;
+  }
 
-    .filtros {
-        gap: 10px;
+  .filtros {
+    gap: 10px;
+    padding: 12px 14px 16px;
+  }
 
-        padding: 15px 10px;
-    }
+  .filtros button {
+    padding: 12px 10px;
+    font-size: 14px;
+  }
 
-    .filtros > div {
-        padding: 11px 10px;
-    }
+  .sorteos {
+    gap: 14px;
+    padding: 0 14px 30px;
+  }
 
-    .filtros p {
-        font-size: 14px;
-    }
+  .sorteoCard {
+    padding: 14px;
+    border-radius: 16px;
+  }
 
+  .sorteoCard > div:first-child {
+    gap: 12px;
+  }
 
-    /* Ofertas */
+  .sorteoCard img {
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+  }
 
-    .ofertas {
-        gap: 10px;
+  .sorteo {
+    font-size: 11px;
+    padding: 3px 10px;
+    margin-bottom: 6px;
+  }
 
-        padding: 0 10px 20px;
-    }
+  .sorteoCard h4 {
+    font-size: 15.5px;
+  }
 
+  .sorteoCard > div:first-child > div > p:not(.sorteo) {
+    font-size: 12.5px;
+  }
 
-    /* Tarjeta */
+  .datos {
+    gap: 20px;
+    margin-top: 12px;
+    padding-top: 10px;
+  }
 
-    .ofertaCard {
-        padding: 12px;
-    }
+  .timer i,
+  .participantes i {
+    font-size: 16px;
+  }
 
+  .timer p,
+  .participantes p {
+    font-size: 11.5px;
+  }
 
-    /* Imagen + información */
+  .timer strong,
+  .participantes strong {
+    font-size: 12.5px;
+  }
 
-    .ofertaCard > div:first-child {
-        gap: 12px;
-    }
-
-    .ofertaCard img {
-        width: 105px;
-        height: 105px;
-    }
-
-
-    /* Sorteo */
-
-    .sorteo {
-        padding: 4px 10px;
-
-        margin-bottom: 5px;
-
-        font-size: 12px;
-    }
-
-
-    /* Título */
-
-    .ofertaCard h4 {
-        margin: 3px 0 6px;
-
-        font-size: 16px;
-    }
-
-
-    /* Descripción */
-
-    .ofertaCard > div:first-child > div > p:not(.sorteo) {
-        font-size: 12px;
-
-        line-height: 1.3;
-    }
-
-
-    /* =========================
-       DATOS
-    ========================= */
-
-    .datos {
-        gap: 20px;
-
-        margin-top: 12px;
-
-        padding-top: 9px;
-    }
-
-
-    /* Timer */
-
-    .timer {
-        gap: 5px;
-    }
-
-    .timer i {
-        font-size: 17px;
-    }
-
-    .timer p {
-        font-size: 11px;
-    }
-
-    .timer strong {
-        font-size: 12px;
-    }
-
-
-    /* Participantes */
-
-    .participantes {
-        gap: 5px;
-    }
-
-    .participantes i {
-        font-size: 17px;
-    }
-
-    .participantes p {
-        font-size: 11px;
-    }
-
-    .participantes strong {
-        font-size: 12px;
-    }
-
-
-    /* Botón */
-
-    .ofertaCard button {
-        margin-top: 11px;
-
-        padding: 9px;
-
-        font-size: 13px;
-    }
+  .sorteoCard button {
+    margin-top: 12px;
+    padding: 11px;
+    font-size: 14px;
+    border-radius: 11px;
+  }
 }
 
 
 /* =========================
-   PANTALLAS MUY PEQUEÑAS
+   MÓVILES PEQUEÑOS
 ========================= */
 
 @media (max-width: 400px) {
 
-    .ofertaCard img {
-        width: 85px;
-        height: 85px;
-    }
+  .sorteoCard img {
+    width: 88px;
+    height: 88px;
+  }
 
-    .ofertaCard h4 {
-        font-size: 14px;
-    }
+  .sorteoCard h4 {
+    font-size: 14.5px;
+  }
 
-    .ofertaCard > div:first-child > div > p:not(.sorteo) {
-        font-size: 11px;
-    }
+  .sorteoCard > div:first-child > div > p:not(.sorteo) {
+    font-size: 12px;
+  }
 
+  .datos {
+    gap: 14px;
+  }
 
-    /* Datos */
+  .timer,
+  .participantes {
+    gap: 6px;
+  }
 
-    .datos {
-        gap: 12px;
-    }
+  .timer i,
+  .participantes i {
+    font-size: 15px;
+  }
 
+  .timer p,
+  .participantes p {
+    font-size: 11px;
+  }
 
-    /* Timer */
-
-    .timer {
-        gap: 4px;
-    }
-
-    .timer i {
-        font-size: 15px;
-    }
-
-    .timer p {
-        font-size: 10px;
-    }
-
-    .timer strong {
-        font-size: 11px;
-    }
-
-
-    /* Participantes */
-
-    .participantes {
-        gap: 4px;
-    }
-
-    .participantes i {
-        font-size: 15px;
-    }
-
-    .participantes p {
-        font-size: 10px;
-    }
-
-    .participantes strong {
-        font-size: 11px;
-    }
+  .timer strong,
+  .participantes strong {
+    font-size: 12px;
+  }
 }
-

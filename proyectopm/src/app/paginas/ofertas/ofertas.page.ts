@@ -11,7 +11,8 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/stan
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class OfertasPage implements OnInit {
-
+  activo=true;
+  detalles=false;
   constructor() { }
 
   ngOnInit() {

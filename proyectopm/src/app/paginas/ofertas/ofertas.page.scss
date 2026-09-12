@@ -1,3 +1,7 @@
+/* =========================
+   HEADER
+========================= */
+
 ion-header {
   box-shadow: none;
 }
@@ -5,157 +9,834 @@ ion-header {
 ion-toolbar {
   --background: #ffffff;
   --border-width: 0;
-  padding: 10px 20px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  --min-height: 56px;
 }
 
 ion-title {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
-  color: #222;
-  text-transform: capitalize;
+  color: #1a1a1a;
+  letter-spacing: -0.3px;
 }
+
+
+/* =========================
+   CONTENIDO
+========================= */
 
 ion-content {
-  --background: #f5f6f8;
+  --background: #f4f5f7;
 }
 
-/* Filtros */
+ion-content h1 {
+  margin: 28px 20px 8px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+
+/* =========================
+   FILTROS
+========================= */
+
 .filtros {
   display: flex;
-  gap: 15px;
-  padding: 20px;
+  gap: 12px;
+  padding: 16px 20px 20px;
 }
 
 .filtros > div {
   flex: 1;
-  padding: 12px 20px;
-  background: white;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  cursor: pointer;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s ease;
+  overflow: hidden;
 }
 
-.filtros p {
+.filtros > div:active {
+  transform: scale(0.97);
+}
+
+.filtros button {
+  width: 100%;
+  padding: 13px 16px;
   margin: 0;
-  font-size: 16px;
+  border: none;
+  background: transparent;
+  font-size: 15px;
   font-weight: 600;
-  color: black;
+  color: #444;
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
-/* Filtro activo */
-.filtros .activos {
+/* Estado activo del filtro */
+.filtros > div.activo {
   background: #6956ff;
+  box-shadow: 0 4px 14px rgba(105, 86, 255, 0.35);
 }
 
-.filtros .activos p {
-  color: white;
+.filtros > div.activo button {
+  color: #ffffff;
 }
 
-/* Contenedor de ofertas */
+
+/* =========================
+   CONTENEDOR DE OFERTAS
+========================= */
+
 .ofertas {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  padding: 0 20px 30px;
-}
-
-/* Tarjeta */
-.ofertaCard {
-  background: white;
-  border-radius: 15px;
-  padding: 15px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-}
-
-/* Imagen + información */
-.ofertaCard > div:first-child {
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 20px 40px;
+  margin-bottom: 60px;
 }
 
-.ofertaCard img {
+
+/* =========================
+   TARJETA
+========================= */
+
+.ofertasCard {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom:20px ;
+}
+
+.ofertasCard:active {
+  transform: scale(0.985);
+}
+
+
+/* =========================
+   IMAGEN + TEXTO
+========================= */
+
+.ofertasCard > div:first-child {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.ofertasCard img {
   width: 120px;
   height: 120px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 14px;
+  flex-shrink: 0;
+  background: #f0f0f0;
 }
 
-.ofertaCard h3 {
+.ofertasCard > div:first-child > div {
+  flex: 1;
+  min-width: 0;
+}
+
+
+/* Badge "oferta activo" */
+
+.ofertas {
+  /* cuidado: esta clase también es del contenedor */
+}
+
+.ofertasCard .ofertas {
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 4px 12px;
+  background: #eee;
+  color: #444;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+
+/* Título */
+
+.ofertasCard h4 {
   margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.3;
+}
+
+
+/* Descripción */
+
+.ofertasCard > div:first-child > div > p:not(.ofertas) {
+  margin: 0;
+  font-size: 13.5px;
+  color: #666;
+  line-height: 1.45;
+}
+
+
+/* =========================
+   DATOS (timer)
+========================= */
+
+.datos {
+  display: flex;
+  gap: 28px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.timer i {
   font-size: 18px;
+  color: #6956ff;
+}
+
+.timer p {
+  margin: 0;
+  font-size: 12.5px;
+  color: #777;
+  line-height: 1.35;
+}
+
+.timer strong {
+  color: #222;
+  font-size: 13.5px;
   font-weight: 700;
 }
 
-.ofertaCard p {
-  margin: 5px 0;
-  color: #555;
-  font-size: 14px;
-  line-height: 1.4;
-}
 
-/* Fecha y participantes */
-.ofertaCard > div:nth-child(2) {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-  border-top: 1px solid #eee;
-  padding-top: 10px;
-}
+/* =========================
+   BOTÓN
+========================= */
 
-.ofertaCard > div:nth-child(2) p {
-  margin: 0;
-}
-
-/* Botón */
-.ofertaCard button {
+.ofertasCard button {
   width: 100%;
-  margin-top: 12px;
-  padding: 11px;
+  margin-top: 14px;
+  padding: 12px;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #6956ff;
-  color: white;
+  color: #ffffff;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.15s ease;
 }
 
-.ofertaCard button:hover {
-  opacity: 0.9;
+.ofertasCard button:active {
+  opacity: 0.88;
+  transform: scale(0.98);
 }
 
-/* Celular */
-@media (max-width: 600px) {
-  .ofertas {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    padding: 0 10px 20px;
-  }
 
-  .ofertaCard {
-    padding: 10px;
-  }
+/* =========================
+   CONTENEDOR PRINCIPAL DE DETALLES 
+========================= */
 
-  .ofertaCard > div:first-child {
-    flex-direction: column;
-  }
-
-  .ofertaCard img {
+.detallesOfertas {
     width: 100%;
-    height: 120px;
-  }
+    min-height: 100%;
 
-  .ofertaCard h3 {
+    padding: 25px 20px;
+
+    box-sizing: border-box;
+
+    background: #f5f6f8;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.detalles {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header-details {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+    
+    margin-bottom: 25px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.header-details button {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #f5f6f8;
+
+    color: #222;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.header-details button:hover {
+    background: #e9e9ed;
+
+    transform: translateX(-2px);
+}
+
+.header-details h2 {
+    margin: 0;
+
+    color: #222;
+    
+    font-size: 26px;
+    font-weight: 700;
+
+    line-height: 1.2;
+}
+
+
+.ofertasCard-finalizadas{
+    color: #1a1a1a;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+
+
+
+
+
+
+.detallesOfertas {
+    animation: aparecerDetalles 0.55s ease;
+}
+
+@keyframes aparecerDetalles {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+.ofertasCard-finalizadas {
+    animation: finalizado 0.35s ease;
+}
+
+@keyframes finalizado {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.ofertasCard {
+    animation: activas 0.35s ease;
+}
+
+@keyframes activas {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+
+/* =========================
+   IMAGEN
+========================= */
+
+.detalles > img {
+    width: 220px;
+    height: 220px;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   INFORMACIÓN
+========================= */
+
+.detalles > div > p {
+    margin: 0 0 10px;
+
+    color: #666;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+.detalles > div > p:first-child {
+    color: #222;
+
+    font-size: 24px;
+}
+
+
+/* =========================
+   DATOS
+========================= */
+
+.datos-datalles {
+    margin-top: 20px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #eeeeee;
+}
+
+.timer {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.timer i {
+    color: #6956ff;
+
+    font-size: 22px;
+}
+
+.timer p {
+    margin: 0;
+
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.3;
+}
+
+.timer strong {
+    color: #333;
+
     font-size: 15px;
+}
+
+
+/* =========================
+   CONDICIONES
+========================= */
+
+.condiciones {
+    margin-top: 25px;
+
+    padding: 18px;
+
+    background: #f7f7f9;
+
+    border-radius: 12px;
+}
+
+.condiciones::before {
+    content: "Condiciones";
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #222;
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.condiciones ul {
+    margin: 0;
+
+    padding-left: 20px;
+
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   BOTÓN CANJEAR
+========================= */
+
+.detalles > button:last-child {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #6956ff;
+
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.detalles > button:last-child:hover {
+    opacity: 0.9;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .detallesOfertas {
+        padding: 15px 10px 30px;
+    }
+
+
+    /* Card */
+
+    .detalles {
+        padding: 18px;
+
+        border-radius: 15px;
+    }
+
+
+    /* Header */
+
+    .header-details {
+        gap: 10px;
+
+        margin-bottom: 18px;
+
+        padding-bottom: 12px;
+    }
+
+    .header-details button {
+        width: 38px;
+        height: 38px;
+
+        font-size: 18px;
+    }
+
+    .header-details h2 {
+        font-size: 21px;
+    }
+
+
+    /* Imagen */
+
+    .detalles > img {
+        width: 100%;
+        height: 200px;
+
+        margin-bottom: 18px;
+    }
+
+
+    /* Información */
+
+    .detalles > div > p {
+        font-size: 14px;
+    }
+
+    .detalles > div > p:first-child {
+        font-size: 20px;
+    }
+
+
+    /* Datos */
+
+    .datos-datalles {
+        margin-top: 15px;
+
+        padding-top: 12px;
+    }
+
+    .timer {
+        gap: 7px;
+    }
+
+    .timer i {
+        font-size: 19px;
+    }
+
+    .timer p {
+        font-size: 12px;
+    }
+
+    .timer strong {
+        font-size: 13px;
+    }
+
+
+    /* Condiciones */
+
+    .condiciones {
+        margin-top: 20px;
+
+        padding: 15px;
+    }
+
+    .condiciones ul {
+        font-size: 13px;
+    }
+
+
+    /* Botón */
+
+    .detalles > button:last-child {
+        margin-top: 15px;
+
+        padding: 11px;
+
+        font-size: 14px;
+    }
+}
+
+
+/* =========================
+   PANTALLAS MUY PEQUEÑAS
+========================= */
+
+@media (max-width: 400px) {
+
+    .detalles {
+        padding: 15px;
+    }
+
+    .header-details h2 {
+        font-size: 19px;
+    }
+
+    .detalles > img {
+        height: 170px;
+    }
+
+    .detalles > div > p:first-child {
+        font-size: 18px;
+    }
+
+    .detalles > div > p {
+        font-size: 13px;
+    }
+
+    .condiciones ul {
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+
+/* =========================
+   TABLET / MÓVIL GRANDE
+========================= */
+
+@media (max-width: 600px) {
+
+  ion-content h1 {
+    font-size: 26px;
+    margin: 22px 16px 6px;
   }
 
-  .ofertaCard p {
+  .filtros {
+    gap: 10px;
+    padding: 12px 14px 16px;
+  }
+
+  .filtros button {
+    padding: 12px 10px;
+    font-size: 14px;
+  }
+
+  .ofertas {
+    gap: 14px;
+    padding: 0 14px 30px;
+  }
+
+  .ofertasCard {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .ofertasCard > div:first-child {
+    gap: 12px;
+  }
+
+  .ofertasCard img {
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+  }
+
+  .ofertasCard .ofertas {
+    font-size: 11px;
+    padding: 3px 10px;
+    margin-bottom: 6px;
+  }
+
+  .ofertasCard h4 {
+    font-size: 15.5px;
+  }
+
+  .ofertasCard > div:first-child > div > p:not(.ofertas) {
+    font-size: 12.5px;
+  }
+
+  .datos {
+    gap: 20px;
+    margin-top: 12px;
+    padding-top: 10px;
+  }
+
+  .timer i {
+    font-size: 16px;
+  }
+
+  .timer p {
+    font-size: 11.5px;
+  }
+
+  .timer strong {
+    font-size: 12.5px;
+  }
+
+  .ofertasCard button {
+    margin-top: 12px;
+    padding: 11px;
+    font-size: 14px;
+    border-radius: 11px;
+  }
+}
+
+
+/* =========================
+   MÓVILES PEQUEÑOS
+========================= */
+
+@media (max-width: 400px) {
+
+  .ofertasCard img {
+    width: 88px;
+    height: 88px;
+  }
+
+  .ofertasCard h4 {
+    font-size: 14.5px;
+  }
+
+  .ofertasCard > div:first-child > div > p:not(.ofertas) {
     font-size: 12px;
   }
 
-  .ofertaCard button {
-    font-size: 13px;
-    padding: 9px;
+  .datos {
+    gap: 14px;
+  }
+
+  .timer {
+    gap: 6px;
+  }
+
+  .timer i {
+    font-size: 15px;
+  }
+
+  .timer p {
+    font-size: 11px;
+  }
+
+  .timer strong {
+    font-size: 12px;
   }
 }
