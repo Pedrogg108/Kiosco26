@@ -50,45 +50,27 @@
         <h2>Destacados</h2>
         //cambiar ion card por un for
         <div class="destacados">
-
+            @for(p of Productos.slice(0,2);track p.id){
             <ion-card>
-                <img alt="Producto destacado" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+
+                <img src="{{p.img}}" alt="{{p.alt}}" />
 
                 <ion-card-header>
-                    <ion-card-title>Card Title</ion-card-title>
-                    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+                    <ion-card-title>{{p.nombre}}</ion-card-title>
+                    <ion-card-subtitle>
+                        Precio: ${{p.precio}}
+                    </ion-card-subtitle>
                 </ion-card-header>
 
                 <ion-card-content>
                     Here's a small text description for the card content.
                 </ion-card-content>
+
             </ion-card>
+            }
 
-            <ion-card>
-                <img alt="Producto destacado" src="https://ionicframework.com/docs/img/demos/card-media.png" />
 
-                <ion-card-header>
-                    <ion-card-title>Card Title</ion-card-title>
-                    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-                </ion-card-header>
 
-                <ion-card-content>
-                    Here's a small text description for the card content.
-                </ion-card-content>
-            </ion-card>
-
-            <ion-card>
-                <img alt="Producto destacado" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-
-                <ion-card-header>
-                    <ion-card-title>Card Title</ion-card-title>
-                    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-                </ion-card-header>
-
-                <ion-card-content>
-                    Here's a small text description for the card content.
-                </ion-card-content>
-            </ion-card>
         </div>
 
     </div>

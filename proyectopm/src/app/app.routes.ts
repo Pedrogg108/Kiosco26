@@ -33,6 +33,10 @@ export const routes: Routes = [
   {
     path :'mas-opciones',
     loadComponent:()=> import('./paginas/mas-opciones/mas-opciones.page').then(m =>m.MasOpcionesPage)
+  },  {
+    path: 'productos',
+    loadComponent: () => import('./paginas/productos/productos.page').then( m => m.ProductosPage)
   }
+
 
 ];
