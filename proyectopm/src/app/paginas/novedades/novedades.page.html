@@ -6,24 +6,60 @@
 
 <ion-content>
     <div class="elementos">
-        <div class="Todos">
-            <p>Todo</p>
+        <div [class.activo]="paso === 1">
+            <button (click)="paso = 1">Todos</button>
         </div>
 
-        <div class="productos">
-            <p>Productos</p>
+        <div [class.activo]="paso === 2">
+            <button (click)="paso = 2">Productos</button>
         </div>
 
-        <div class="kiosco">
-            <p>Kiosco</p>
+        <div [class.activo]="paso === 3">
+            <button (click)="paso = 3">Kiosco</button>
         </div>
 
-        <div class="horarios">
-            <p>Horarios</p>
+        <div [class.activo]="paso === 4">
+            <button (click)="paso = 4">Horarios</button>
         </div>
     </div>
-    <div class="todo">
+    <div class="contenido">
+        <!--Se muestra todo-->
+        @if(paso===1){
+        <h2>Proximamente :v</h2>
+        }
+
+        <!--Se muestran todos los productos-->
+        @if(paso===2){
+        @for(p of Productos; track p.id){
+
         <ion-card>
+
+            <img src="{{p.img}}" alt="{{p.alt}}" />
+
+            <ion-card-header>
+                <ion-card-title>{{p.nombre}}</ion-card-title>
+                <ion-card-subtitle>
+                    Precio: ${{p.precio}}
+                </ion-card-subtitle>
+            </ion-card-header>
+
+            <ion-card-content>
+                Here's a small text description for the card content.
+            </ion-card-content>
+
+        </ion-card>
+
+        }
+        }
+        <!--Se muestra algo del kiosco-->
+        @if(paso===3){
+        <h2>Proximamente :v</h2>
+        }
+        <!--Se muestran los horarios-->
+        @if(paso===4){
+        <h2>Proximamente :v</h2>
+        }
+        <!-- <ion-card>
             <img alt="Producto destacado" src="https://ionicframework.com/docs/img/demos/card-media.png" />
 
             <ion-card-header>
@@ -73,6 +109,6 @@
             <ion-card-content>
                 Here's a small text description for the card content.
             </ion-card-content>
-        </ion-card>
+        </ion-card> -->
     </div>
 </ion-content>

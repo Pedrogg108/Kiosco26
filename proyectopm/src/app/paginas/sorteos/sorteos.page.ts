@@ -11,7 +11,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/stan
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class SorteosPage implements OnInit {
-
+  activo=true;
   constructor() { }
 
   ngOnInit() {

@@ -1,16 +1,22 @@
-import { Component,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NavbarPage } from 'src/app/compartido/navbar/navbar.page';
 import { FootbarPage } from 'src/app/compartido/footbar/footbar.page';
-import {register} from 'swiper/element/bundle'
-import { IonButtons, IonContent, IonHeader, IonMenu, IonMenuButton, IonTitle, IonToolbar,IonCol, IonGrid, IonRow, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle} from '@ionic/angular/standalone';
+import { register } from 'swiper/element/bundle'
+import { ProductosPage } from '../productos/productos.page';
+import { ProductosService } from 'src/app/servicios/productos-service';
+import { IonButtons, IonContent, IonHeader, IonMenu, IonMenuButton, IonTitle, IonToolbar, IonCol, IonGrid, IonRow, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/angular/standalone';
 register()
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [ NavbarPage,FootbarPage,IonButtons, IonContent, IonHeader, IonMenu, IonMenuButton, IonTitle, IonToolbar,IonCol, IonGrid, IonRow, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle],
-   schemas: [CUSTOM_ELEMENTS_SCHEMA] // necesario si es standalone
+  imports: [NavbarPage, FootbarPage, IonButtons, IonContent, IonHeader, IonMenu, IonMenuButton, IonTitle, IonToolbar, IonCol, IonGrid, IonRow, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, ProductosPage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] // necesario si es standalone
 })
 export class HomePage {
-  constructor() {}
+  constructor(private productosService: ProductosService) { }
+
+  get Productos() {
+    return this.productosService.Productos;
+  }
 }

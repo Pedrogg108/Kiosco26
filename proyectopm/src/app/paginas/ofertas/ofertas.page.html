@@ -1,0 +1,126 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>Ofertas</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    @if(detalles===false){
+    <h1> Ofertas</h1>
+    <div class="filtros">
+        <div [class.activo]="activo===true">
+            <button (click)="activo=true">Activas</button>
+        </div>
+        <div [class.activo]="activo===false">
+            <button (click)="activo=false">Finalizadas</button>
+        </div>
+    </div>
+    <div class="ofertas">
+
+        @if(activo===true){
+
+        <div class="ofertasCard">
+            <div>
+                <img src="../../../assets/Imagenes/ionic.png" alt="ionic">
+                <div>
+                    <p class="ofertas">Oferta activa</p>
+                    <h4><strong>¡20% OFF en saladix!</strong></h4>
+                    <p>Por tiempo limitado</p>
+                </div>
+            </div>
+            <div class="datos">
+                <div class="timer">
+                    <i class="bi bi-stopwatch"></i>
+                    <p>Finaliza el:<br><strong>26/10/2026</strong> </p>
+                </div>
+
+            </div>
+            <button (click)="detalles=true">Ver oferta</button>
+        </div>
+
+        <div class="ofertasCard">
+            <div>
+                <img src="../../../assets/Imagenes/ionic.png" alt="ionic">
+                <div>
+                    <p class="ofertas">Oferta activa</p>
+                    <h4><strong>¡20% OFF en saladix!</strong></h4>
+                    <p>Por tiempo limitado</p>
+                </div>
+            </div>
+            <div class="datos">
+                <div class="timer">
+                    <i class="bi bi-stopwatch"></i>
+                    <p>Finaliza el:<br><strong>26/10/2026</strong> </p>
+                </div>
+
+            </div>
+            <button (click)="detalles=true">Ver oferta</button>
+        </div>
+
+        <div class="ofertasCard">
+            <div>
+                <img src="../../../assets/Imagenes/ionic.png" alt="ionic">
+                <div>
+                    <p class="ofertas">Oferta activa</p>
+                    <h4><strong>¡20% OFF en saladix!</strong></h4>
+                    <p>Por tiempo limitado</p>
+                </div>
+            </div>
+            <div class="datos">
+                <div class="timer">
+                    <i class="bi bi-stopwatch"></i>
+                    <p>Finaliza el:<br><strong>26/10/2026</strong> </p>
+                </div>
+
+            </div>
+            <button (click)="detalles=true">Ver oferta</button>
+        </div>
+
+        }
+
+
+
+
+        @if(activo===false){
+        <div class="ofertasCard-finalizadas">
+            <h3>nada</h3>
+        </div>
+
+        }
+    </div>
+    }
+    @if(detalles===true){
+    <div class="detallesOfertas">
+
+        <div class="detalles">
+            <div class="header-details">
+                <button (click)="detalles=false"><i class="bi bi-arrow-left"></i></button>
+                <h2>Detalles de la oferta</h2>
+            </div>
+            <img src="assets/Imagenes/ionic.png" alt="producto">
+            <div>
+
+                <p><strong>¡20% OFF en saladix</strong></p>
+                <p>Por tiempo limitado. Valido en productos seleccionados del kiosco</p>
+
+                <div class="datos-datalles">
+                    <div class="timer">
+                        <i class="bi bi-stopwatch"></i>
+                        <p>Finaliza el:<br><strong>26/10/2026</strong> </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="condiciones">
+                <ul>
+                    <li>Valido solo en el kiosco del colegio</li>
+                    <li>No acumulable con otras promociones</li>
+                    <li>algo nose </li>
+                </ul>
+            </div>
+            <button>Canjear oferta</button>
+        </div>
+    </div>
+    }
+
+</ion-content>

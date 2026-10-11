@@ -9,6 +9,7 @@ ion-header {
 ion-toolbar {
     --background: #ffffff;
     --border-width: 0;
+
     padding: 10px 20px;
 }
 
@@ -20,7 +21,7 @@ ion-title {
 
 
 /* =========================
-   FONDO DE LA PÁGINA
+   FONDO
 ========================= */
 
 ion-content {
@@ -29,11 +30,12 @@ ion-content {
 
 
 /* =========================
-   ELEMENTOS / CATEGORÍAS
+   CATEGORÍAS
 ========================= */
 
 .elementos {
     display: flex;
+
     align-items: center;
 
     gap: 15px;
@@ -42,179 +44,87 @@ ion-content {
 
     overflow-x: auto;
 
-    /* Evita la barra de desplazamiento */
     scrollbar-width: none;
-}
 
-.elementos::-webkit-scrollbar {
-    display: none;
-}
-
-
-/* Cada elemento */
-
-.elementos > div {
-    flex: 1;
-
-    min-width: 120px;
-
-    padding: 12px 20px;
-
-    background: #ffffff;
-
-    border-radius: 12px;
-
-    text-align: center;
-
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-
-    cursor: pointer;
-
-    transition: transform 0.2s, box-shadow 0.2s;
-
-    /* Evita que se achiquen */
-    flex-shrink: 0;
-}
-
-.elementos > div:hover {
-    transform: translateY(-2px);
-
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
-}
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
 
-/* Texto */
+    /* ---------- Cada categoría ---------- */
 
-.elementos p {
-    margin: 0;
+    > div {
+        min-width: 120px;
 
-    font-size: 16px;
+        flex: 1;
+        flex-shrink: 0;
 
-    font-weight: 600;
+        padding: 12px 20px;
 
-    color: #222;
+        background: #ffffff;
 
-    white-space: nowrap;
-}
+        border-radius: 12px;
 
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 
-/* =========================
-   ELEMENTO ACTIVO
-========================= */
-
-.elementos .activo {
-    background: #6956ff;
-}
-
-.elementos .activo p {
-    color: #ffffff;
-}
+       
+    }
 
 
-/* =========================
-   CONTENEDOR DE NOVEDADES
-========================= */
+    /* ---------- Categoría seleccionada ---------- */
 
-.todo {
-    display: grid;
+    > div.activo {
+        background: #6956ff;
 
-    grid-template-columns: repeat(3, 1fr);
+        box-shadow: 0 4px 14px rgba(105, 86, 255, 0.35);
 
-    gap: 20px;
+        button {
+            color: #ffffff;
+        }
+    }
 
-    padding: 0 20px 30px;
+
+    /* ---------- Botones ---------- */
+
+    button {
+        width: 100%;
+
+        margin: 0;
+        padding: 0;
+
+        border: none;
+
+        background: transparent;
+
+        font-family: inherit;
+
+        font-size: 16px;
+
+        font-weight: 600;
+
+        color: #222;
+
+        white-space: nowrap;
+
+        cursor: pointer;
+    }
 }
 
 
 /* =========================
-   TARJETAS
-========================= */
-
-.todo ion-card {
-    margin: 0;
-
-    border-radius: 15px;
-
-    overflow: hidden;
-
-    background: #ffffff;
-
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.todo ion-card:hover {
-    transform: translateY(-4px);
-
-    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
-}
-
-
-/* Imagen */
-
-.todo ion-card img {
-    width: 100%;
-
-    height: 200px;
-
-    object-fit: cover;
-}
-
-
-/* =========================
-   HEADER DE TARJETA
-========================= */
-
-.todo ion-card-header {
-    padding: 15px;
-}
-
-.todo ion-card-title {
-    font-size: 20px;
-
-    font-weight: 700;
-
-    color: #222;
-}
-
-.todo ion-card-subtitle {
-    margin-top: 5px;
-
-    font-size: 14px;
-
-    color: #666;
-}
-
-
-/* =========================
-   CONTENIDO DE TARJETA
-========================= */
-
-.todo ion-card-content {
-    padding: 0 15px 20px;
-
-    color: #555;
-
-    font-size: 14px;
-
-    line-height: 1.5;
-}
-
-
-/* =========================
+   CONTENEDOR DE CARDS
    TABLETS
 ========================= */
 
 @media (min-width: 769px) and (max-width: 1100px) {
 
-    .todo {
+    .contenido {
         grid-template-columns: repeat(2, 1fr);
 
         gap: 15px;
     }
 
-    .todo ion-card img {
+    .contenido ion-card img {
         height: 180px;
     }
 }
@@ -226,7 +136,7 @@ ion-content {
 
 @media (max-width: 768px) {
 
-    /* Header */
+    /* ---------- Header ---------- */
 
     ion-toolbar {
         padding: 8px 15px;
@@ -237,7 +147,7 @@ ion-content {
     }
 
 
-    /* Elementos */
+    /* ---------- Categorías ---------- */
 
     .elementos {
         justify-content: flex-start;
@@ -245,24 +155,24 @@ ion-content {
         gap: 10px;
 
         padding: 15px 10px;
+
+        > div {
+            min-width: 105px;
+
+            padding: 11px 15px;
+
+            border-radius: 11px;
+        }
+
+        button {
+            font-size: 14px;
+        }
     }
 
-    .elementos > div {
-        min-width: 105px;
 
-        padding: 11px 15px;
+    /* ---------- Cards ---------- */
 
-        border-radius: 11px;
-    }
-
-    .elementos p {
-        font-size: 14px;
-    }
-
-
-    /* Tarjetas */
-
-    .todo {
+    .contenido {
         grid-template-columns: repeat(2, 1fr);
 
         gap: 10px;
@@ -270,35 +180,29 @@ ion-content {
         padding: 0 10px 20px;
     }
 
+    .contenido ion-card {
 
-    /* Imagen */
+        img {
+            height: 130px;
+        }
 
-    .todo ion-card img {
-        height: 130px;
-    }
+        ion-card-header {
+            padding: 10px;
+        }
 
+        ion-card-title {
+            font-size: 16px;
+        }
 
-    /* Header */
+        ion-card-subtitle {
+            font-size: 12px;
+        }
 
-    .todo ion-card-header {
-        padding: 10px;
-    }
+        ion-card-content {
+            padding: 0 10px 15px;
 
-    .todo ion-card-title {
-        font-size: 16px;
-    }
-
-    .todo ion-card-subtitle {
-        font-size: 12px;
-    }
-
-
-    /* Contenido */
-
-    .todo ion-card-content {
-        padding: 0 10px 15px;
-
-        font-size: 13px;
+            font-size: 13px;
+        }
     }
 }
 
@@ -313,38 +217,38 @@ ion-content {
         gap: 8px;
 
         padding: 12px 10px;
-    }
 
-    .elementos > div {
-        min-width: 95px;
+        > div {
+            min-width: 95px;
 
-        padding: 10px 12px;
-    }
-
-    .elementos p {
-        font-size: 13px;
+            padding: 10px 12px;
+        }
     }
 
 
-    .todo {
+    .contenido {
         gap: 8px;
 
         padding: 0 8px 20px;
     }
 
-    .todo ion-card img {
-        height: 110px;
-    }
 
-    .todo ion-card-title {
-        font-size: 14px;
-    }
+    .contenido ion-card {
 
-    .todo ion-card-subtitle {
-        font-size: 11px;
-    }
+        img {
+            height: 110px;
+        }
 
-    .todo ion-card-content {
-        font-size: 12px;
+        ion-card-title {
+            font-size: 14px;
+        }
+
+        ion-card-subtitle {
+            font-size: 11px;
+        }
+
+        ion-card-content {
+            font-size: 12px;
+        }
     }
 }

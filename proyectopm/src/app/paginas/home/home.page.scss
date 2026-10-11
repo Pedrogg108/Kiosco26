@@ -1,53 +1,10 @@
-.swiper-container {
-  margin-top: 5rem;
-  width: 100%;
-  padding-bottom: 30px;
-}
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
 
 ion-content {
-
   --background: #ffffff;
 }
-
-h2 {
-  color: #222222;
-}
-
-/* =========================
-   CARRUSEL
-========================= */
-
-.carousel {
-  
-  width: 90%;
-  max-width: 1100px;
-  margin: 25px auto 35px;
-}
-
-swiper-container {
-  width: 100%;
-  height: 420px;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-swiper-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-
-/* =========================
-   TÍTULOS
-========================= */
 
 h2 {
   width: 90%;
@@ -56,7 +13,49 @@ h2 {
 
   font-size: 24px;
   font-weight: 700;
+
   color: #222;
+}
+
+
+/* =========================
+   CARRUSEL
+========================= */
+
+.swiper-container {
+  width: 100%;
+  margin-top: 5rem;
+  padding-bottom: 30px;
+}
+
+.carousel {
+  width: 90%;
+  max-width: 1100px;
+
+  margin: 25px auto 35px;
+}
+
+swiper-container {
+  width: 100%;
+  height: 420px;
+
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+swiper-slide {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+swiper-slide img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  display: block;
 }
 
 
@@ -67,14 +66,17 @@ h2 {
 .categorias {
   width: 90%;
   max-width: 1100px;
-  justify-content: center;
+
   margin: 0 auto;
 
   display: flex;
-  
+
+  justify-content: center;
+  align-items: center;
+
   gap: 20px;
 
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .novedades,
@@ -84,14 +86,17 @@ h2 {
   width: 120px;
   height: 120px;
 
-  background-color: #eeeeee;
-  border-radius: 15px;
+  flex-shrink: 0;
 
   display: flex;
   flex-direction: column;
 
-  align-items: center;
   justify-content: center;
+  align-items: center;
+
+  background-color: #eeeeee;
+
+  border-radius: 15px;
 
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 
@@ -102,119 +107,189 @@ h2 {
     box-shadow 0.2s ease;
 
   i {
-    font-size: 32px;
     margin-bottom: 10px;
+
+    font-size: 32px;
+
     color: #333;
   }
 
   p {
     margin: 0;
+
     font-size: 15px;
     font-weight: 600;
+
+    text-align: center;
+
     color: #333;
   }
 
   &:hover {
     transform: translateY(-4px);
+
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   }
 }
 
 
 /* =========================
-   DESTACADOS
+   PRODUCTOS DESTACADOS
 ========================= */
 
 .destacados {
   width: 90%;
   max-width: 550px;
-  justify-self: center;
-  margin: 0 0 100px 0;
-  display: flex;
+
+  margin: 0 auto 100px;
+  grid-template-columns: repeat(2, 1fr);
+  display: grid;
   flex-direction: column;
+
   gap: 15px;
 }
 
+
+/* =========================
+   CARD
+========================= */
+
 .destacados ion-card {
-  width: 100%;
   margin: 0;
 
-  border-radius: 15px;
   overflow: hidden;
 
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+  border-radius: 15px;
+
+  background: #ffffff;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
+  }
+
+
+  /* ---------- Imagen ---------- */
 
   img {
     width: 100%;
-    height: 140px;
+    height: 200px;
+
     object-fit: cover;
+
+    display: block;
   }
 
+
+  /* ---------- Header ---------- */
+
   ion-card-header {
-    padding: 12px 16px;
+    padding: 15px;
   }
 
   ion-card-title {
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #222;
   }
 
   ion-card-subtitle {
+    margin-top: 5px;
+
     font-size: 14px;
+
+    color: #38a169;
   }
 
+
+  /* ---------- Contenido ---------- */
+
   ion-card-content {
-    padding: 0 16px 15px;
+    padding: 0 15px 20px;
+
     font-size: 14px;
+
+    line-height: 1.5;
+
+    color: #555;
   }
 }
 
 
 /* =========================
-   CELULARES
+   TABLETS Y CELULARES
 ========================= */
 
 @media (max-width: 768px) {
 
+  /* ---------- Carrusel ---------- */
+
   .carousel {
     width: 95%;
+
     margin: 20px auto 30px;
   }
 
   swiper-container {
     height: 280px;
+
     border-radius: 15px;
   }
 
+
+  /* ---------- Títulos ---------- */
+
   h2 {
     width: 90%;
-    font-size: 21px;
+
     margin-top: 25px;
+
+    font-size: 21px;
   }
 
+
+  /* ---------- Categorías ---------- */
+
   .categorias {
-    width: 90%;
-    justify-content: center;
-    gap: 15px;
+    width: 95%;
+
+    justify-content: space-between;
+
+    gap: 8px;
   }
 
   .novedades,
   .sorteos,
   .ofertas,
   .eventos {
-    width: 105px;
-    height: 105px;
+
+    width: 75px;
+    height: 75px;
+
+    border-radius: 12px;
 
     i {
-      font-size: 28px;
+      margin-bottom: 5px;
+
+      font-size: 23px;
     }
 
     p {
-      font-size: 14px;
+      font-size: 11px;
     }
   }
 
-  /* CARDS EN CELULAR */
+
+  /* ---------- Cards ---------- */
 
   .destacados {
     width: 85%;
@@ -224,8 +299,6 @@ h2 {
   }
 
   .destacados ion-card {
-    width: 100%;
-    margin: 0;
 
     img {
       height: 120px;
@@ -245,7 +318,21 @@ h2 {
 
     ion-card-content {
       padding: 0 14px 12px;
+
       font-size: 13px;
     }
   }
+}
+
+
+/* =========================
+   CELULARES PEQUEÑOS
+========================= */
+
+@media (max-width: 500px) {
+
+  .destacados {
+    width: 90%;
+  }
+
 }
