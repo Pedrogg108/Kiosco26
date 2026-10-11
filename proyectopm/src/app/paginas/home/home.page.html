@@ -21,9 +21,11 @@
 
         </div>
 
-        <h2>Categorías</h2>
-
-        <div class="categorias">
+        <!-- <h2>Categorías</h2> -->
+        <h2>Encuentre su producto deseado</h2>
+        <ion-searchbar placeholder="Buscar productos..." [debounce]="300"
+            (ionInput)="buscarProducto($event)"></ion-searchbar>
+        <!-- <div class="categorias">
 
             <div class="novedades">
                 <i class="bi bi-megaphone-fill"></i>
@@ -45,33 +47,39 @@
                 <p>Eventos</p>
             </div>
 
-        </div>
+        </div> -->
+        <h2>
+            {{ textoBusqueda ? 'Resultados de búsqueda' : 'Productos destacados del Kiosco' }}
+        </h2>
 
-        <h2>Productos destacados del Kiosco</h2>
-        //cambiar ion card por un for
         <div class="destacados">
-            @for(p of Productos.slice(0,8);track p.id){
-            <ion-card>
 
-                <img src="{{p.img}}" alt="{{p.alt}}" />
+            @if (productosFiltrados.length === 0) {
+            <p class="sin-resultados">
+                No se encontraron productos.
+            </p>
+            } @else {
+            @for (p of productosFiltrados; track p.id) {
+            <ion-card>
+                <img [src]="p.img" [alt]="p.alt" />
 
                 <ion-card-header>
-                    <ion-card-title>{{p.nombre}}</ion-card-title>
+                    <ion-card-title>{{ p.nombre }}</ion-card-title>
+
                     <ion-card-subtitle>
-                        Precio: ${{p.precio}}
+                        Precio: ${{ p.precio }}
                     </ion-card-subtitle>
                 </ion-card-header>
 
                 <ion-card-content>
-                    Here's a small text description for the card content.
+                    Descrip
                 </ion-card-content>
-
             </ion-card>
             }
-
-
+            }
 
         </div>
+        
 
     </div>
 

@@ -11,100 +11,86 @@
       <button (click)="activo=true">Activos</button>
     </div>
     <div [class.activo]="activo === false">
-      <button (click)="activo=false">Finalizados</button>
+      <button (click)="activo=false">Participando</button>
     </div>
   </div>
   <div class="sorteos">
 
     @if(activo===true){
+    @if(sorteosDisponibles.length===0){
+    <p class="mensaje-vacio">No hay Sorteos Disponibles</p>
+    }@else{
+    @for(p of sorteosDisponibles; track p.id){
+
     <div class="sorteoCard">
       <div>
-        <img src="assets/Imagenes/caramelos.png" alt="ionic">
+        <img src="{{p.img}}" alt="{{p.alt}}">
         <div>
           <p class="sorteo">Sorteo activo</p>
-          <h4><strong>¡Sorteamos una promo dulce!</strong></h4>
-          <p>Participá y llevate
-            unas galletitas junto
-            con un jugo</p>
+          <h4><strong>¡Sorteamos {{p.titulo}}!</strong></h4>
+          <p>{{p.descripcion}}</p>
         </div>
       </div>
       <div class="datos">
         <div class="timer">
           <i class="bi bi-stopwatch"></i>
-          <p>Finaliza el:<br><strong>26/10/2026</strong> </p>
+          <p>Finaliza el:<br><strong>{{p.fechaCierre}}</strong> </p>
         </div>
 
         <div class="participantes">
           <i class="bi bi-people-fill"></i>
-          <p>Participantes:<br><strong>67</strong></p>
+          <p>Participantes:<br><strong>{{p.participantes}}</strong></p>
         </div>
 
 
       </div>
-      <button (click)="participarSorteoAlerta()">Participar</button>
-    </div>
-
-    <div class="sorteoCard">
-      <div>
-        <img src="../../../assets/Imagenes/ionic.png" alt="ionic">
-        <div>
-          <p class="sorteo">Sorteo activo</p>
-          <h4><strong>¡Sorteamos una promo dulce!</strong></h4>
-          <p>Participá y llevate
-            unas galletitas junto
-            con un jugo</p>
-        </div>
-      </div>
-      <div class="datos">
-        <div class="timer">
-          <i class="bi bi-stopwatch"></i>
-          <p>Finaliza el:<br><strong>26/10/2026</strong> </p>
-        </div>
-
-        <div class="participantes">
-          <i class="bi bi-people-fill"></i>
-          <p>Participantes:<br><strong>67</strong></p>
-        </div>
-
-
-      </div>
-      <button>Participar</button>
-    </div>
-
-    <div class="sorteoCard">
-      <div>
-        <img src="../../../assets/Imagenes/ionic.png" alt="ionic">
-        <div>
-          <p class="sorteo">Sorteo activo</p>
-          <h4><strong>¡Sorteamos una promo dulce!</strong></h4>
-          <p>Participá y llevate
-            unas galletitas junto
-            con un jugo</p>
-        </div>
-      </div>
-      <div class="datos">
-        <div class="timer">
-          <i class="bi bi-stopwatch"></i>
-          <p>Finaliza el:<br><strong>26/10/2026</strong> </p>
-        </div>
-
-        <div class="participantes">
-          <i class="bi bi-people-fill"></i>
-          <p>Participantes:<br><strong>67</strong></p>
-        </div>
-
-
-      </div>
-      <button (click)="participarSorteoAlerta()">Participar</button>
+      <button (click)="participarSorteo(p)">Participar</button>
     </div>
     }
-    @if(activo===false){
-    <div class="sorteoCard-finalizados">
-      <h3>nada</h3>
-    </div>
-
+    }
     }
 
 
+    @if(!activo ){
+    <!-- @if(sorteoParticipando.length===0){
+    <p>No esta participando en ningun sorteo</p>
+    }@else{
+
+
+    @for(p of productosSorteos; track p.id){
+    @if(p.participando){ -->
+
+    @if(sorteoParticipando.length === 0) {
+    <p class="mensaje-vacio">No estás participando en ningún sorteo</p>
+    } @else {
+    @for(p of sorteoParticipando; track p.id) {
+    <div class="sorteoCard">
+      <div>
+        <img src="{{p.img}}" alt="{{p.alt}}">
+        <div>
+          <p class="sorteo">Sorteo activo</p>
+          <h4><strong>¡Sorteamos {{p.titulo}}!</strong></h4>
+          <p>{{p.descripcion}}</p>
+        </div>
+      </div>
+      <div class="datos">
+        <div class="timer">
+          <i class="bi bi-stopwatch"></i>
+          <p>Finaliza el:<br><strong>{{p.fechaCierre}}</strong> </p>
+        </div>
+
+        <div class="participantes">
+          <i class="bi bi-people-fill"></i>
+          <p>Participantes:<br><strong>{{p.participantes}}</strong></p>
+        </div>
+
+
+      </div>
+      <button style="background-color: #aeaeae;" disabled>Ya esta participando</button>
+    </div>
+    }
+    }
+    }
+    
   </div>
 </ion-content>
