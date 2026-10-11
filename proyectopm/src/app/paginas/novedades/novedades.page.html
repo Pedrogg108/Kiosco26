@@ -6,20 +6,20 @@
 
 <ion-content>
     <div class="elementos">
-        <div [class.activo]="paso === 1">
-            <button (click)="paso = 1">Todos</button>
+        <div [class.activo]="paso === 1" (click)="paso = 1">
+            <button >Todos</button>
         </div>
 
-        <div [class.activo]="paso === 2">
-            <button (click)="paso = 2">Productos</button>
+        <div [class.activo]="paso === 2" (click)="paso = 2">
+            <button >Productos</button>
         </div>
 
-        <div [class.activo]="paso === 3">
-            <button (click)="paso = 3">Kiosco</button>
+        <div [class.activo]="paso === 3" (click)="paso = 3">
+            <button >Promociones</button>
         </div>
 
-        <div [class.activo]="paso === 4">
-            <button (click)="paso = 4">Horarios</button>
+        <div [class.activo]="paso === 4" (click)="paso = 4">
+            <button >Avisos</button>
         </div>
     </div>
     <div class="contenido">
@@ -51,64 +51,14 @@
 
         }
         }
-        <!--Se muestra algo del kiosco-->
+        <!--Se muestra promociones-->
         @if(paso===3){
         <h2>Proximamente :v</h2>
         }
-        <!--Se muestran los horarios-->
+        <!--Se muestran avisos-->
         @if(paso===4){
         <h2>Proximamente :v</h2>
         }
-        <!-- <ion-card>
-            <img alt="Producto destacado" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-
-            <ion-card-header>
-                <ion-card-title>Card Title</ion-card-title>
-                <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-            </ion-card-header>
-
-            <ion-card-content>
-                Here's a small text description for the card content.
-            </ion-card-content>
-        </ion-card>
-
-        <ion-card>
-            <img alt="Producto destacado" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-
-            <ion-card-header>
-                <ion-card-title>Card Title</ion-card-title>
-                <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-            </ion-card-header>
-
-            <ion-card-content>
-                Here's a small text description for the card content.
-            </ion-card-content>
-        </ion-card>
-
-        <ion-card>
-            <img alt="Producto destacado" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-
-            <ion-card-header>
-                <ion-card-title>Card Title</ion-card-title>
-                <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-            </ion-card-header>
-
-            <ion-card-content>
-                Here's a small text description for the card content.
-            </ion-card-content>
-        </ion-card>
-
-         <ion-card>
-            <img alt="Producto destacado" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-
-            <ion-card-header>
-                <ion-card-title>Card Title</ion-card-title>
-                <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-            </ion-card-header>
-
-            <ion-card-content>
-                Here's a small text description for the card content.
-            </ion-card-content>
-        </ion-card> -->
+        
     </div>
 </ion-content>

@@ -47,10 +47,10 @@
 
         </div>
 
-        <h2>Destacados</h2>
+        <h2>Productos destacados del Kiosco</h2>
         //cambiar ion card por un for
         <div class="destacados">
-            @for(p of Productos.slice(0,2);track p.id){
+            @for(p of Productos.slice(0,8);track p.id){
             <ion-card>
 
                 <img src="{{p.img}}" alt="{{p.alt}}" />

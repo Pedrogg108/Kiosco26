@@ -19,7 +19,7 @@
     @if(activo===true){
     <div class="sorteoCard">
       <div>
-        <img src="../../../assets/Imagenes/ionic.png" alt="ionic">
+        <img src="assets/Imagenes/caramelos.png" alt="ionic">
         <div>
           <p class="sorteo">Sorteo activo</p>
           <h4><strong>¡Sorteamos una promo dulce!</strong></h4>
@@ -41,7 +41,7 @@
 
 
       </div>
-      <button>Participar</button>
+      <button (click)="participarSorteoAlerta()">Participar</button>
     </div>
 
     <div class="sorteoCard">
@@ -95,7 +95,7 @@
 
 
       </div>
-      <button>Participar</button>
+      <button (click)="participarSorteoAlerta()">Participar</button>
     </div>
     }
     @if(activo===false){

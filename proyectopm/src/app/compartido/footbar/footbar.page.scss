@@ -1,3 +1,8 @@
+
+/* =========================
+   BARRA DE NAVEGACIÓN
+========================= */
+
 .swiper-container {
   position: fixed;
   bottom: 0;
@@ -12,58 +17,188 @@
   gap: 35px;
 
   background: #ffffff;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e7eb;
 
   z-index: 1000;
 
-  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.07);
+
+  padding: 5px 12px;
+  box-sizing: border-box;
 }
 
-/* Cada botón */
+/* =========================
+   BOTONES DE NAVEGACIÓN
+========================= */
+
 .swiper-container > div {
+  position: relative;
+
   width: 75px;
-  height: 70px;
+  height: 68px;
+  flex-shrink: 0;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+  gap: 3px;
+
+  color: #777777;
+
   cursor: pointer;
+  border-radius: 14px;
 
-  transition: all 0.2s ease;
-
-  color: #777;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
 }
 
-/* Iconos */
+/* =========================
+   ELEMENTO ACTIVO
+========================= */
+
+.swiper-container > div.activo {
+  background: #eff4ff;
+  color: #2563eb;
+
+  border-radius: 14px;
+
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.10);
+
+  animation: aparecerActivo 0.25s ease;
+}
+
+/* Indicador inferior del activo */
+
+.swiper-container > div.activo::after {
+  content: "";
+
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+
+  width: 22px;
+  height: 3px;
+
+  background: #2563eb;
+  border-radius: 10px;
+
+  transform: translateX(-50%);
+}
+
+/* =========================
+   ICONOS
+========================= */
+
 .swiper-container i {
   font-size: 28px;
-  margin-bottom: 5px;
+  line-height: 1;
+
+  margin-bottom: 3px;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
-/* Texto */
+/* Icono activo */
+
+.swiper-container > div.activo i {
+  color: #2563eb;
+  transform: scale(1.08);
+}
+
+/* =========================
+   TEXTOS
+========================= */
+
 .swiper-container p {
   margin: 0;
 
   font-size: 14px;
   font-weight: 600;
+
+  line-height: 1.2;
+
+  transition: color 0.25s ease;
 }
 
-/* Hover */
-.swiper-container > div:hover {
+/* Texto activo */
+
+.swiper-container > div.activo p {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+/* =========================
+   EFECTO HOVER
+========================= */
+
+.swiper-container > div:not(.activo):hover {
   color: #6c5ce7;
+  background: #f7f7ff;
+
   transform: translateY(-3px);
 }
 
-/* Elemento activo */
-.inicio {
+.swiper-container > div:not(.activo):hover i {
   color: #6c5ce7;
 }
 
-/* Efecto al presionar */
+/* =========================
+   EFECTO AL PRESIONAR
+========================= */
+
 .swiper-container > div:active {
-  transform: scale(0.92);
+  transform: scale(0.94);
+}
+
+/* El activo no se desplaza con el hover */
+
+.swiper-container > div.activo:hover {
+  background: #e8efff;
+}
+
+/* =========================
+   ANIMACIÓN DEL ACTIVO
+========================= */
+
+@keyframes aparecerActivo {
+  from {
+    opacity: 0.7;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   TABLETS
+========================= */
+
+@media (max-width: 768px) {
+  .swiper-container {
+    gap: 16px;
+  }
+
+  .swiper-container > div {
+    width: 68px;
+  }
+
+  .swiper-container i {
+    font-size: 26px;
+  }
+
+  .swiper-container p {
+    font-size: 13px;
+  }
 }
 
 /* =========================
@@ -71,22 +206,53 @@
 ========================= */
 
 @media (max-width: 480px) {
-
   .swiper-container {
     height: 72px;
-    gap: 8px;
+    gap: 4px;
+
+    padding: 4px 6px;
+
+    padding-bottom: max(4px, env(safe-area-inset-bottom));
   }
 
   .swiper-container > div {
     width: 60px;
-    height: 65px;
+    height: 62px;
+
+    border-radius: 12px;
+    gap: 3px;
+  }
+
+  .swiper-container > div.activo {
+    border-radius: 12px;
+  }
+
+  .swiper-container > div.activo::after {
+    width: 18px;
+    height: 3px;
+    bottom: 2px;
   }
 
   .swiper-container i {
     font-size: 24px;
+    margin-bottom: 2px;
   }
 
   .swiper-container p {
-    font-size: 12px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+}
+
+/* =========================
+   ACCESIBILIDAD
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .swiper-container > div,
+  .swiper-container i,
+  .swiper-container p {
+    transition: none;
+    animation: none;
   }
 }

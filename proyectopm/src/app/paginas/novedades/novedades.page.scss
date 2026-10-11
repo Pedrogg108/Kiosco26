@@ -1,22 +1,26 @@
+
 /* =========================
    HEADER
 ========================= */
 
 ion-header {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 ion-toolbar {
-    --background: #ffffff;
-    --border-width: 0;
+  --background: #ffffff;
+  --border-width: 0;
+  --padding-start: 20px;
+  --padding-end: 20px;
 
-    padding: 10px 20px;
+  padding: 10px 20px;
 }
 
 ion-title {
-    font-size: 28px;
-    font-weight: 700;
-    color: #222;
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: -0.3px;
 }
 
 
@@ -25,108 +29,254 @@ ion-title {
 ========================= */
 
 ion-content {
-    --background: #f5f6f8;
+  --background: #f5f6f8;
 }
 
 
 /* =========================
-   CATEGORÍAS
+   CATEGORÍAS / FILTROS
 ========================= */
 
 .elementos {
-    display: flex;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 
+  padding: 20px;
+
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Cada categoría */
+
+  > div {
+    min-width: 120px;
+    flex: 1 0 120px;
+
+    display: flex;
+    justify-content: center;
     align-items: center;
 
-    gap: 15px;
+    padding: 13px 20px;
 
-    padding: 20px;
+    background: #ffffff;
+    border-radius: 14px;
 
-    overflow-x: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 
-    scrollbar-width: none;
+    cursor: pointer;
+    overflow: hidden;
 
-    &::-webkit-scrollbar {
-        display: none;
+    transition:
+      background-color 0.25s ease,
+      box-shadow 0.25s ease,
+      transform 0.18s ease;
+
+    /* Animación al tocar */
+
+    &:active {
+      transform: scale(0.96);
     }
+  }
 
+  /* Categoría seleccionada */
 
-    /* ---------- Cada categoría ---------- */
+  > div.activo {
+    background: #6956ff;
 
-    > div {
-        min-width: 120px;
+    box-shadow: 0 4px 14px rgba(105, 86, 255, 0.30);
 
-        flex: 1;
-        flex-shrink: 0;
-
-        padding: 12px 20px;
-
-        background: #ffffff;
-
-        border-radius: 12px;
-
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-
-       
-    }
-
-
-    /* ---------- Categoría seleccionada ---------- */
-
-    > div.activo {
-        background: #6956ff;
-
-        box-shadow: 0 4px 14px rgba(105, 86, 255, 0.35);
-
-        button {
-            color: #ffffff;
-        }
-    }
-
-
-    /* ---------- Botones ---------- */
+    animation: filtroSeleccionado 0.25s ease;
 
     button {
-        width: 100%;
-
-        margin: 0;
-        padding: 0;
-
-        border: none;
-
-        background: transparent;
-
-        font-family: inherit;
-
-        font-size: 16px;
-
-        font-weight: 600;
-
-        color: #222;
-
-        white-space: nowrap;
-
-        cursor: pointer;
+      color: #ffffff;
     }
+  }
+
+  /* Botones */
+
+  button {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+
+    color: #333333;
+    text-align: center;
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  /* Hover para computadora */
+
+  > div:not(.activo):hover {
+    background: #f9f8ff;
+    box-shadow: 0 3px 10px rgba(105, 86, 255, 0.12);
+  }
+
+  > div:not(.activo):hover button {
+    color: #6956ff;
+  }
+
+  /* Evita cambiar el color del seleccionado */
+
+  > div.activo:hover {
+    background: #6956ff;
+  }
+}
+
+
+/* =========================
+   ANIMACIÓN DEL FILTRO
+========================= */
+
+@keyframes filtroSeleccionado {
+  from {
+    opacity: 0.8;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 
 /* =========================
    CONTENEDOR DE CARDS
+========================= */
+
+.contenido {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+
+  padding: 0 20px 100px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.contenido ion-card {
+  margin: 0;
+
+  overflow: hidden;
+
+  border-radius: 15px;
+
+  background: #ffffff;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  animation: aparecerNovedad 0.4s ease both;
+
+  &:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
+  }
+
+  &:active {
+    transform: scale(0.985);
+  }
+
+  /* Imagen */
+
+  img {
+    width: 100%;
+    height: 200px;
+
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Header */
+
+  ion-card-header {
+    padding: 15px;
+  }
+
+  ion-card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
+  }
+
+  ion-card-subtitle {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #38a169;
+  }
+
+  /* Contenido */
+
+  ion-card-content {
+    padding: 0 15px 20px;
+
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+  }
+}
+
+
+/* =========================
+   ANIMACIÓN DE LAS CARDS
+========================= */
+
+@keyframes aparecerNovedad {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================
    TABLETS
 ========================= */
 
 @media (min-width: 769px) and (max-width: 1100px) {
+  .contenido {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
 
-    .contenido {
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 15px;
-    }
-
-    .contenido ion-card img {
-        height: 180px;
-    }
+  .contenido ion-card img {
+    height: 180px;
+  }
 }
 
 
@@ -136,74 +286,66 @@ ion-content {
 
 @media (max-width: 768px) {
 
-    /* ---------- Header ---------- */
+  /* Header */
 
-    ion-toolbar {
-        padding: 8px 15px;
+  ion-toolbar {
+    padding: 8px 15px;
+  }
+
+  ion-title {
+    font-size: 24px;
+  }
+
+  /* Categorías */
+
+  .elementos {
+    gap: 10px;
+    padding: 15px 10px;
+
+    > div {
+      min-width: 105px;
+      flex-basis: 105px;
+
+      padding: 12px 15px;
+      border-radius: 13px;
     }
 
-    ion-title {
-        font-size: 24px;
+    button {
+      font-size: 14px;
+    }
+  }
+
+  /* Cards */
+
+  .contenido {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+
+    padding: 0 10px 100px;
+  }
+
+  .contenido ion-card {
+    img {
+      height: 130px;
     }
 
-
-    /* ---------- Categorías ---------- */
-
-    .elementos {
-        justify-content: flex-start;
-
-        gap: 10px;
-
-        padding: 15px 10px;
-
-        > div {
-            min-width: 105px;
-
-            padding: 11px 15px;
-
-            border-radius: 11px;
-        }
-
-        button {
-            font-size: 14px;
-        }
+    ion-card-header {
+      padding: 10px;
     }
 
-
-    /* ---------- Cards ---------- */
-
-    .contenido {
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 10px;
-
-        padding: 0 10px 20px;
+    ion-card-title {
+      font-size: 16px;
     }
 
-    .contenido ion-card {
-
-        img {
-            height: 130px;
-        }
-
-        ion-card-header {
-            padding: 10px;
-        }
-
-        ion-card-title {
-            font-size: 16px;
-        }
-
-        ion-card-subtitle {
-            font-size: 12px;
-        }
-
-        ion-card-content {
-            padding: 0 10px 15px;
-
-            font-size: 13px;
-        }
+    ion-card-subtitle {
+      font-size: 12px;
     }
+
+    ion-card-content {
+      padding: 0 10px 15px;
+      font-size: 13px;
+    }
+  }
 }
 
 
@@ -213,42 +355,52 @@ ion-content {
 
 @media (max-width: 400px) {
 
-    .elementos {
-        gap: 8px;
+  .elementos {
+    gap: 8px;
+    padding: 12px 10px;
 
-        padding: 12px 10px;
+    > div {
+      min-width: 95px;
+      flex-basis: 95px;
 
-        > div {
-            min-width: 95px;
+      padding: 11px 12px;
+    }
+  }
 
-            padding: 10px 12px;
-        }
+  .contenido {
+    gap: 8px;
+    padding: 0 8px 100px;
+  }
+
+  .contenido ion-card {
+    img {
+      height: 110px;
     }
 
-
-    .contenido {
-        gap: 8px;
-
-        padding: 0 8px 20px;
+    ion-card-title {
+      font-size: 14px;
     }
 
-
-    .contenido ion-card {
-
-        img {
-            height: 110px;
-        }
-
-        ion-card-title {
-            font-size: 14px;
-        }
-
-        ion-card-subtitle {
-            font-size: 11px;
-        }
-
-        ion-card-content {
-            font-size: 12px;
-        }
+    ion-card-subtitle {
+      font-size: 11px;
     }
+
+    ion-card-content {
+      font-size: 12px;
+    }
+  }
+}
+
+
+/* =========================
+   ACCESIBILIDAD
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .elementos > div,
+  .elementos button,
+  .contenido ion-card {
+    animation: none;
+    transition: none;
+  }
 }
