@@ -66,7 +66,7 @@ export class OfertasPage implements OnInit {
 
   /**
    * Abre la vista de detalle de una oferta.
-   * @param p Producto/oferta seleccionada
+   * for p Producto/oferta seleccionada
    */
   detallesOferta(p: Producto) {
     this.enOferta = p;
@@ -86,7 +86,7 @@ export class OfertasPage implements OnInit {
    * - Llama al servicio para marcarla como canjeada
    * - Muestra un mensaje de éxito con SweetAlert2
    * - Cierra la vista de detalle
-   * @param p Producto/oferta a canjear
+  
    */
   canjearOferta(p: Producto) {
     this.productosService.canjearOferta(p);

@@ -93,7 +93,7 @@ export class ProductosService {
    * - Marca la propiedad `oferta` del producto como `false`.
    * - Agrega el producto al historial de ofertas canjeadas.
    * 
-   * @param producto Producto/oferta que se desea canjear
+   * for producto Producto/oferta que se desea canjear
    */
   canjearOferta(producto: Producto): void {
     // Evitar canjear dos veces
