@@ -1,0 +1,418 @@
+
+/* ========================================
+   CONFIGURACIÓN GENERAL
+======================================== */
+
+ion-content {
+  --background: #f4f6f9;
+  --padding-bottom: 30px;
+}
+
+ion-header ion-toolbar {
+  --background: #ffffff;
+  --color: #222222;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+ion-header ion-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+
+/* ========================================
+   ENCABEZADO DE LA PÁGINA
+======================================== */
+
+.head {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+  padding: 35px 30px 25px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.titulo {
+  margin: 0;
+
+  color: #172b3a;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.subtitulo {
+  color: #718096;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
+/* ========================================
+   TARJETA PRINCIPAL DE CUENTA
+======================================== */
+
+.cuenta {
+  width: calc(100% - 60px);
+  max-width: 1100px;
+
+  margin: 0 auto;
+  padding: 30px 32px;
+
+  background-color: #ffffff;
+
+  border: 1px solid #e3e8ef;
+  border-radius: 12px;
+
+  box-shadow: 0 3px 12px rgba(25, 45, 65, 0.04);
+}
+
+
+/* ========================================
+   INFORMACIÓN PRINCIPAL DEL USUARIO
+======================================== */
+
+.principal {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  padding-bottom: 28px;
+  margin-bottom: 5px;
+
+  border-bottom: 1px solid #e5eaf0;
+}
+
+.principal > i {
+  font-size: 76px;
+  color: #2f6f7e;
+
+  flex-shrink: 0;
+}
+
+.principal > span {
+  color: #172b3a;
+
+  font-size: 23px;
+  font-weight: 600;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* ========================================
+   OPCIONES DE CUENTA
+======================================== */
+
+.editarPerfil,
+.cambiarContraseña,
+.cerrarSesion {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+
+  min-height: 95px;
+  padding: 20px 5px;
+
+  border-bottom: 1px solid #e5eaf0;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    padding 0.2s ease;
+}
+
+
+/* Quitar el separador de la última opción */
+
+.cerrarSesion {
+  border-bottom: none;
+}
+
+
+/* ========================================
+   ÍCONOS PRINCIPALES
+======================================== */
+
+.editarPerfil > i:first-child,
+.cambiarContraseña > i:first-child,
+.cerrarSesion > i:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  min-width: 32px;
+
+  font-size: 25px;
+  color: #2f6f7e;
+}
+
+
+/* ========================================
+   TEXTOS DE LAS OPCIONES
+======================================== */
+
+.editarPerfil > div,
+.cambiarContraseña > div,
+.cerrarSesion > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  flex: 1;
+  min-width: 0;
+}
+
+.editarPerfil span,
+.cambiarContraseña span,
+.cerrarSesion span {
+  line-height: 1.4;
+}
+
+.editarPerfil strong,
+.cambiarContraseña strong,
+.cerrarSesion strong {
+  color: #263746;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.editarPerfil > div > span:last-child,
+.cambiarContraseña > div > span:last-child,
+.cerrarSesion > div > span:last-child {
+  color: #718096;
+  font-size: 14px;
+}
+
+
+/* ========================================
+   FLECHAS
+======================================== */
+
+.editarPerfil > i:last-child,
+.cambiarContraseña > i:last-child,
+.cerrarSesion > i:last-child {
+  margin-left: auto;
+
+  color: #718096;
+  font-size: 19px;
+
+  flex-shrink: 0;
+
+  transition: transform 0.2s ease;
+}
+
+
+/* ========================================
+   EFECTOS HOVER
+======================================== */
+
+.editarPerfil:hover,
+.cambiarContraseña:hover,
+.cerrarSesion:hover {
+  background-color: #f7fafc;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.editarPerfil:hover > i:last-child,
+.cambiarContraseña:hover > i:last-child,
+.cerrarSesion:hover > i:last-child {
+  transform: translateX(4px);
+}
+
+
+/* ========================================
+   CERRAR SESIÓN
+======================================== */
+
+.cerrarSesion > i:first-child {
+  color: #c84c4c;
+}
+
+.cerrarSesion strong {
+  color: #b83b3b;
+}
+
+
+/* ========================================
+   TABLETS
+======================================== */
+
+@media (max-width: 768px) {
+
+  .head {
+    padding: 28px 22px 20px;
+  }
+
+  .titulo {
+    font-size: 28px;
+  }
+
+  .subtitulo {
+    font-size: 15px;
+  }
+
+  .cuenta {
+    width: calc(100% - 44px);
+    padding: 24px;
+  }
+
+  .principal {
+    gap: 16px;
+    padding-bottom: 22px;
+  }
+
+  .principal > i {
+    font-size: 64px;
+  }
+
+  .principal > span {
+    font-size: 20px;
+  }
+
+  .editarPerfil,
+  .cambiarContraseña,
+  .cerrarSesion {
+    gap: 16px;
+    min-height: 88px;
+    padding: 18px 4px;
+  }
+
+}
+
+
+/* ========================================
+   CELULARES
+======================================== */
+
+@media (max-width: 480px) {
+
+  ion-header ion-title {
+    font-size: 16px;
+  }
+
+  .head {
+    padding: 24px 18px 18px;
+    gap: 6px;
+  }
+
+  .titulo {
+    font-size: 25px;
+  }
+
+  .subtitulo {
+    font-size: 14px;
+  }
+
+  .cuenta {
+    width: calc(100% - 32px);
+    padding: 18px 16px;
+
+    border-radius: 10px;
+  }
+
+  .principal {
+    gap: 13px;
+    padding-bottom: 20px;
+  }
+
+  .principal > i {
+    font-size: 52px;
+  }
+
+  .principal > span {
+    font-size: 17px;
+  }
+
+  .editarPerfil,
+  .cambiarContraseña,
+  .cerrarSesion {
+    gap: 12px;
+    min-height: 82px;
+    padding: 17px 2px;
+  }
+
+  .editarPerfil > i:first-child,
+  .cambiarContraseña > i:first-child,
+  .cerrarSesion > i:first-child {
+    width: 25px;
+    min-width: 25px;
+    font-size: 21px;
+  }
+
+  .editarPerfil strong,
+  .cambiarContraseña strong,
+  .cerrarSesion strong {
+    font-size: 14px;
+  }
+
+  .editarPerfil > div > span:last-child,
+  .cambiarContraseña > div > span:last-child,
+  .cerrarSesion > div > span:last-child {
+    font-size: 12px;
+  }
+
+  .editarPerfil > i:last-child,
+  .cambiarContraseña > i:last-child,
+  .cerrarSesion > i:last-child {
+    font-size: 16px;
+  }
+
+  /* Evitar movimientos innecesarios en pantallas táctiles */
+
+  .editarPerfil:hover,
+  .cambiarContraseña:hover,
+  .cerrarSesion:hover {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+}
+
+
+/* ========================================
+   CELULARES MUY PEQUEÑOS
+======================================== */
+
+@media (max-width: 360px) {
+
+  .head {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .cuenta {
+    width: calc(100% - 24px);
+    padding: 15px 12px;
+  }
+
+  .principal > i {
+    font-size: 44px;
+  }
+
+  .principal > span {
+    font-size: 15px;
+  }
+
+  .editarPerfil,
+  .cambiarContraseña,
+  .cerrarSesion {
+    gap: 9px;
+  }
+
+  .editarPerfil > div > span:last-child,
+  .cambiarContraseña > div > span:last-child,
+  .cerrarSesion > div > span:last-child {
+    font-size: 11px;
+  }
+
+}

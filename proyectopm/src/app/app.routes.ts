@@ -33,9 +33,26 @@ export const routes: Routes = [
   {
     path :'mas-opciones',
     loadComponent:()=> import('./paginas/mas-opciones/mas-opciones.page').then(m =>m.MasOpcionesPage)
-  },  {
+  },
+  {
     path: 'productos',
     loadComponent: () => import('./paginas/productos/productos.page').then( m => m.ProductosPage)
+  },
+  {
+    path: 'preinicio',
+    loadComponent: () => import('./auth/preinicio/preinicio.page').then( m => m.PreinicioPage)
+  },
+  {
+    path: 'inicio-sesion',
+    loadComponent: () => import('./auth/inicio-sesion/inicio-sesion.page').then( m => m.InicioSesionPage)
+  },
+  {
+    path: 'registro',
+    loadComponent: () => import('./auth/registro/registro.page').then( m => m.RegistroPage)
+  },
+  {
+    path: 'cuenta',
+    loadComponent: () => import('./paginas/cuenta/cuenta.page').then( m => m.CuentaPage)
   }
 
 

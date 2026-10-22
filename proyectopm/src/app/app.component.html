@@ -1,7 +1,10 @@
+@if(mostrarMenu()){
 <app-navbar>
-  <ion-app>
-
-    <ion-router-outlet></ion-router-outlet>
-  </ion-app>
-  <app-footbar></app-footbar>
 </app-navbar>
+}
+<ion-app>
+  <ion-router-outlet></ion-router-outlet>
+</ion-app>
+@if(mostrarMenu()){
+<app-footbar></app-footbar>
+}
