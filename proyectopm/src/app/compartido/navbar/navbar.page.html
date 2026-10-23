@@ -1,12 +1,13 @@
 <div class="swiper-container">
 
-  <ion-menu contentId="main-content">
+  <ion-menu contentId="main-content" side="start" type="overlay">
     <ion-header>
       <ion-toolbar>
         <ion-title>Menu</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="menu-content">
+
+    <ion-content class="ion-padding">
       <div class="Cuenta" routerLink="/cuenta">
         <i class="bi bi-person-circle"></i>
         <span>Cuenta</span>
@@ -14,7 +15,8 @@
     </ion-content>
   </ion-menu>
 
-  <div class="pagina-navbar" id="main-content">
+  <div class="ion-page" id="main-content">
+
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="start">
@@ -22,7 +24,11 @@
         </ion-buttons>
 
         <div class="titulo-container">
-          <img src="../../../assets/Imagenes/logoCet30.png" alt="logoCet30" routerLink='/home'>
+          <img
+            src="../../../assets/Imagenes/logoCet30.png"
+            alt="logoCet30"
+            routerLink="/home"
+          >
           <span>Kiosco Escolar</span>
         </div>
 
@@ -32,8 +38,7 @@
       </ion-toolbar>
     </ion-header>
 
-    <!-- 👇 acá se va a insertar el ion-content de cada página -->
     <ng-content></ng-content>
-  </div>
 
+  </div>
 </div>

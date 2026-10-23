@@ -1,4 +1,3 @@
-
 /* ========================================
    CONFIGURACIÓN GENERAL
 ======================================== */
@@ -88,14 +87,14 @@ ion-header ion-title {
   border-bottom: 1px solid #e5eaf0;
 }
 
-.principal > i {
+.principal>i {
   font-size: 76px;
   color: #2f6f7e;
 
   flex-shrink: 0;
 }
 
-.principal > span {
+.principal>span {
   color: #172b3a;
 
   font-size: 23px;
@@ -140,9 +139,9 @@ ion-header ion-title {
    ÍCONOS PRINCIPALES
 ======================================== */
 
-.editarPerfil > i:first-child,
-.cambiarContraseña > i:first-child,
-.cerrarSesion > i:first-child {
+.editarPerfil>i:first-child,
+.cambiarContraseña>i:first-child,
+.cerrarSesion>i:first-child {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -159,9 +158,9 @@ ion-header ion-title {
    TEXTOS DE LAS OPCIONES
 ======================================== */
 
-.editarPerfil > div,
-.cambiarContraseña > div,
-.cerrarSesion > div {
+.editarPerfil>div,
+.cambiarContraseña>div,
+.cerrarSesion>div {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -185,9 +184,9 @@ ion-header ion-title {
   font-weight: 600;
 }
 
-.editarPerfil > div > span:last-child,
-.cambiarContraseña > div > span:last-child,
-.cerrarSesion > div > span:last-child {
+.editarPerfil>div>span:last-child,
+.cambiarContraseña>div>span:last-child,
+.cerrarSesion>div>span:last-child {
   color: #718096;
   font-size: 14px;
 }
@@ -197,9 +196,9 @@ ion-header ion-title {
    FLECHAS
 ======================================== */
 
-.editarPerfil > i:last-child,
-.cambiarContraseña > i:last-child,
-.cerrarSesion > i:last-child {
+.editarPerfil>i:last-child,
+.cambiarContraseña>i:last-child,
+.cerrarSesion>i:last-child {
   margin-left: auto;
 
   color: #718096;
@@ -223,9 +222,9 @@ ion-header ion-title {
   padding-right: 12px;
 }
 
-.editarPerfil:hover > i:last-child,
-.cambiarContraseña:hover > i:last-child,
-.cerrarSesion:hover > i:last-child {
+.editarPerfil:hover>i:last-child,
+.cambiarContraseña:hover>i:last-child,
+.cerrarSesion:hover>i:last-child {
   transform: translateX(4px);
 }
 
@@ -234,7 +233,7 @@ ion-header ion-title {
    CERRAR SESIÓN
 ======================================== */
 
-.cerrarSesion > i:first-child {
+.cerrarSesion>i:first-child {
   color: #c84c4c;
 }
 
@@ -242,6 +241,183 @@ ion-header ion-title {
   color: #b83b3b;
 }
 
+/* Modal */
+ion-modal {
+  --width: 90%;
+  --max-width: 440px;
+  --height: 500px;
+  --border-radius: 16px;
+  --background: #ffffff;
+}
+
+/* Encabezado */
+ion-modal ion-toolbar {
+  --background: #ffffff;
+  --color: #26353c;
+  --border-width: 0;
+  --min-height: 60px;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+ion-modal ion-title {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+ion-modal ion-header ion-button {
+  --color: #2f6f7e;
+  text-transform: none;
+}
+
+/* Fondo del formulario */
+ion-modal ion-content {
+  --background: #ffffff;
+}
+
+/* Formulario */
+ion-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 4px 20px;
+}
+
+/* Campos */
+ion-modal ion-item {
+  --background: #f8f9fa;
+  --color: #26353c;
+  --border-color: transparent;
+  --inner-border-width: 0;
+  --padding-start: 14px;
+  --padding-end: 14px;
+  --min-height: 72px;
+
+  border: 1px solid #e1e5e8;
+  border-radius: 10px;
+  margin-bottom: 2px;
+}
+
+/* Texto de los inputs */
+ion-modal ion-input {
+  --color: #26353c;
+  --placeholder-color: #929da5;
+  --highlight-color-focused: #2f6f7e;
+
+  font-size: 14px;
+}
+
+/* Botones */
+ion-modal .boton-guardar {
+  margin-top: 8px;
+  --background: #2f6f7e;
+  --color: #ffffff;
+  --border-radius: 10px;
+  --box-shadow: none;
+
+  min-height: 46px;
+  font-weight: 600;
+  text-transform: none;
+}
+
+ion-modal ion-button[fill="outline"] {
+  --border-color: #d8dfe3;
+  --color: #596970;
+  --border-radius: 10px;
+
+  min-height: 44px;
+  text-transform: none;
+}
+
+/* Encabezado informativo */
+.encabezado-contrasena {
+  text-align: center;
+  padding: 8px 10px 18px;
+
+  i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 64px;
+    height: 64px;
+
+    border-radius: 50%;
+    background: #eaf3f5;
+    color: #2f6f7e;
+    font-size: 30px;
+  }
+
+  p {
+    margin: 14px 0 0;
+    color: #78848d;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+/* Modal de contraseña */
+ion-modal:has(.encabezado-contrasena) {
+  --width: 90%;
+  --max-width: 440px;
+  --height: 410px;
+  --border-radius: 16px;
+  --background: #ffffff;
+}
+
+/* Formulario */
+ion-modal:has(.encabezado-contrasena) form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 4px 16px;
+}
+
+/* Campos */
+ion-modal:has(.encabezado-contrasena) ion-item {
+  --background: #f8f9fa;
+  --color: #26353c;
+  --border-color: transparent;
+  --inner-border-width: 0;
+  --padding-start: 14px;
+  --padding-end: 14px;
+  --min-height: 72px;
+
+  border: 1px solid #e1e5e8;
+  border-radius: 10px;
+}
+
+/* Botón principal */
+ion-modal:has(.encabezado-contrasena) .boton-guardar {
+  margin-top: 6px;
+  --background: #2f6f7e;
+  --color: #ffffff;
+  --border-radius: 10px;
+  --box-shadow: none;
+
+  min-height: 46px;
+  font-weight: 600;
+  text-transform: none;
+}
+
+/* Botón cancelar */
+ion-modal:has(.encabezado-contrasena) ion-button[fill="outline"] {
+  --border-color: #d8dfe3;
+  --color: #596970;
+  --border-radius: 10px;
+
+  min-height: 44px;
+  text-transform: none;
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+  ion-modal {
+    --width: calc(100% - 24px);
+    --height: 500px;
+    --border-radius: 14px;
+  }
+}
 
 /* ========================================
    TABLETS
@@ -271,11 +447,11 @@ ion-header ion-title {
     padding-bottom: 22px;
   }
 
-  .principal > i {
+  .principal>i {
     font-size: 64px;
   }
 
-  .principal > span {
+  .principal>span {
     font-size: 20px;
   }
 
@@ -325,11 +501,11 @@ ion-header ion-title {
     padding-bottom: 20px;
   }
 
-  .principal > i {
+  .principal>i {
     font-size: 52px;
   }
 
-  .principal > span {
+  .principal>span {
     font-size: 17px;
   }
 
@@ -341,9 +517,9 @@ ion-header ion-title {
     padding: 17px 2px;
   }
 
-  .editarPerfil > i:first-child,
-  .cambiarContraseña > i:first-child,
-  .cerrarSesion > i:first-child {
+  .editarPerfil>i:first-child,
+  .cambiarContraseña>i:first-child,
+  .cerrarSesion>i:first-child {
     width: 25px;
     min-width: 25px;
     font-size: 21px;
@@ -355,15 +531,15 @@ ion-header ion-title {
     font-size: 14px;
   }
 
-  .editarPerfil > div > span:last-child,
-  .cambiarContraseña > div > span:last-child,
-  .cerrarSesion > div > span:last-child {
+  .editarPerfil>div>span:last-child,
+  .cambiarContraseña>div>span:last-child,
+  .cerrarSesion>div>span:last-child {
     font-size: 12px;
   }
 
-  .editarPerfil > i:last-child,
-  .cambiarContraseña > i:last-child,
-  .cerrarSesion > i:last-child {
+  .editarPerfil>i:last-child,
+  .cambiarContraseña>i:last-child,
+  .cerrarSesion>i:last-child {
     font-size: 16px;
   }
 
@@ -395,11 +571,11 @@ ion-header ion-title {
     padding: 15px 12px;
   }
 
-  .principal > i {
+  .principal>i {
     font-size: 44px;
   }
 
-  .principal > span {
+  .principal>span {
     font-size: 15px;
   }
 
@@ -409,9 +585,9 @@ ion-header ion-title {
     gap: 9px;
   }
 
-  .editarPerfil > div > span:last-child,
-  .cambiarContraseña > div > span:last-child,
-  .cerrarSesion > div > span:last-child {
+  .editarPerfil>div>span:last-child,
+  .cambiarContraseña>div>span:last-child,
+  .cerrarSesion>div>span:last-child {
     font-size: 11px;
   }
 

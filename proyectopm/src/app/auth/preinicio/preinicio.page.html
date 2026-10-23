@@ -2,8 +2,8 @@
  <img src="assets/Imagenes/logoCet30.png" alt="logoCet30">
  <h1 class="titulo">Kiosco Escolar</h1>
 
- <button>Iniciar Sesion</button>
- <button>Registrarse</button>
+ <button routerLink="/inicioSesion">Iniciar Sesion</button>
+ <button routerLink="/registro">Registrarse</button>
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -12,8 +12,10 @@
   Descubre ofertas, promociones, consultá y gestioná todo lo que necesitás
   desde un solo lugar.</p>
   <div class="botones">
-    <button><i class="bi bi-person-fill"></i>Registrarse</button>
 
-    <button><i class="bi bi-box-arrow-right"></i>Iniciar Seseión</button>
+    <button routerLink="/registro"><i class="bi bi-person-fill"></i>Registrarse</button>
+
+    <button routerLink="/inicioSesion"><i class="bi bi-box-arrow-right"></i>Iniciar Seseión</button>
+    
   </div>
 </ion-content>

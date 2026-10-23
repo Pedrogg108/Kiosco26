@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>cuenta</ion-title>
+    <ion-title>Cuenta</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,7 +15,9 @@
       <i class="bi bi-person-circle"></i>
       <span>Nombre de usuario</span>
     </div>
-    <div class="editarPerfil">
+
+    <!-- Editar perfil -->
+    <div class="editarPerfil" (click)="modalEditarPerfil = true">
       <i class="bi bi-person-fill"></i>
       <div>
         <span><strong>Editar Perfil</strong></span>
@@ -24,16 +26,120 @@
       <i class="bi bi-chevron-right"></i>
     </div>
 
-    <div class="cambiarContraseña">
+    <!-- Modal de editar perfil -->
+    <ion-modal [isOpen]="modalEditarPerfil" (didDismiss)="modalEditarPerfil = false">
+
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Editar perfil</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="modalEditarPerfil = false">
+                Cerrar
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+
+        <ion-content class="ion-padding">
+          <form>
+            <ion-item>
+              <ion-input label="Nombre" labelPlacement="stacked" value="nombreUsuario" placeholder="Ingresá tu nombre">
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input label="Apellido" labelPlacement="stacked" value="apellidoUsuario"
+                placeholder="Ingresá tu apellido">
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input label="Teléfono" labelPlacement="stacked" type="tel" value="299-231-4121"
+                placeholder="Ingresá tu teléfono">
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input label="Correo electrónico" labelPlacement="stacked" type="email" value="usuario@gmail.com"
+                placeholder="Ingresá tu correo electrónico">
+              </ion-input>
+            </ion-item>
+
+            <ion-button expand="block" class="boton-guardar">
+              Guardar cambios
+            </ion-button>
+
+            <ion-button expand="block" fill="outline" color="medium" (click)="modalEditarPerfil = false">
+              Cancelar
+            </ion-button>
+          </form>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
+
+    <!-- Cambiar contraseña -->
+    <div class="cambiarContraseña" (click)="modalCambiarContrasena = true">
       <i class="bi bi-lock-fill"></i>
+
       <div>
         <span><strong>Cambiar Contraseña</strong></span>
         <span>Actualiza tu contraseña de acceso</span>
       </div>
+
       <i class="bi bi-chevron-right"></i>
     </div>
 
-    <div class="cerrarSesion">
+    <!-- Modal de cambiar contraseña -->
+    <ion-modal [isOpen]="modalCambiarContrasena" (didDismiss)="modalCambiarContrasena = false"><!--didDismiss:Detecta que el modal terminó de cerrarse.-->
+
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Cambiar contraseña</ion-title>
+
+            <ion-buttons slot="end">
+              <ion-button (click)="modalCambiarContrasena = false">
+                Cerrar
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+
+        <ion-content class="ion-padding">
+          <div class="encabezado-contrasena">
+            <i class="bi bi-shield-lock"></i>
+            <p>Ingresá tu contraseña actual y elegí una nueva.</p>
+          </div>
+
+          <form>
+            <ion-item>
+              <ion-input label="Contraseña actual" labelPlacement="stacked" type="password"
+                placeholder="Ingresá tu contraseña actual">
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input label="Nueva contraseña" labelPlacement="stacked" type="password"
+                placeholder="Ingresá tu nueva contraseña">
+              </ion-input>
+            </ion-item>
+
+            <ion-button expand="block" class="boton-guardar">
+              Cambiar contraseña
+            </ion-button>
+
+            <ion-button expand="block" fill="outline" color="medium" (click)="modalCambiarContrasena = false">
+              Cancelar
+            </ion-button>
+          </form>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
+    <!-- Cerrar sesión -->
+    <div class="cerrarSesion" (click)="cerrarSesion()">
       <i class="bi bi-box-arrow-right"></i>
       <div>
         <span><strong>Cerrar Sesión</strong></span>
@@ -41,7 +147,5 @@
       </div>
       <i class="bi bi-chevron-right"></i>
     </div>
-
   </div>
-
 </ion-content>

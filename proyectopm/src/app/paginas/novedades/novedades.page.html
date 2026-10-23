@@ -1,64 +1,155 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>Novedades</ion-title>
+
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <div class="elementos">
         <div [class.activo]="paso === 1" (click)="paso = 1">
-            <button >Todos</button>
+            <button>Todos</button>
         </div>
 
         <div [class.activo]="paso === 2" (click)="paso = 2">
-            <button >Productos</button>
+            <button>Productos</button>
         </div>
 
         <div [class.activo]="paso === 3" (click)="paso = 3">
-            <button >Promociones</button>
+            <button>Destacados</button>
         </div>
 
         <div [class.activo]="paso === 4" (click)="paso = 4">
-            <button >Avisos</button>
+            <button>Avisos</button>
         </div>
     </div>
     <div class="contenido">
         <!--Se muestra todo-->
         @if(paso===1){
-        <h2>Proximamente :v</h2>
+        <div class="productos-grid">
+            @for(p of Productos; track p.id){
+
+            <ion-card>
+
+                <img src="{{p.img}}" alt="{{p.alt}}" />
+
+                <ion-card-header>
+                    <ion-card-title>{{p.nombre}}</ion-card-title>
+                    <ion-card-subtitle>
+                        Precio: ${{p.precio}}
+                    </ion-card-subtitle>
+                </ion-card-header>
+
+                <ion-card-content>
+                    Here's a small text description for the card content.
+                </ion-card-content>
+
+            </ion-card>
+
+            }
+        </div>
+        <div class="lista-avisos">
+            @for (aviso of Avisos; track aviso.id) {
+            <article class="aviso">
+                <span>{{ aviso.categoria }}</span>
+                <h2>{{ aviso.titulo }}</h2>
+                <p>{{ aviso.descripcion }}</p>
+                <small>{{ aviso.fecha }}</small>
+
+
+            </article>
+            }
+        </div>
+
+
+        <div class="productos-grid">
+            @for (p of destacados; track p.id) {
+            <ion-card>
+                <img [src]="p.img" [alt]="p.alt" />
+
+                <ion-card-header>
+                    <ion-card-title>{{ p.nombre }}</ion-card-title>
+
+                    <ion-card-subtitle>
+                        Precio: ${{ p.precio }}
+                    </ion-card-subtitle>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <span class="etiqueta-destacado">
+                        ⭐ Producto destacado
+                    </span>
+                </ion-card-content>
+            </ion-card>
+            }
+        </div>
         }
 
         <!--Se muestran todos los productos-->
         @if(paso===2){
-        @for(p of Productos; track p.id){
+        <div class="productos-grid">
+            @for(p of Productos; track p.id){
 
-        <ion-card>
+            <ion-card>
 
-            <img src="{{p.img}}" alt="{{p.alt}}" />
+                <img src="{{p.img}}" alt="{{p.alt}}" />
 
-            <ion-card-header>
-                <ion-card-title>{{p.nombre}}</ion-card-title>
-                <ion-card-subtitle>
-                    Precio: ${{p.precio}}
-                </ion-card-subtitle>
-            </ion-card-header>
+                <ion-card-header>
+                    <ion-card-title>{{p.nombre}}</ion-card-title>
+                    <ion-card-subtitle>
+                        Precio: ${{p.precio}}
+                    </ion-card-subtitle>
+                </ion-card-header>
 
-            <ion-card-content>
-                Here's a small text description for the card content.
-            </ion-card-content>
+                <ion-card-content>
+                    Here's a small text description for the card content.
+                </ion-card-content>
 
-        </ion-card>
+            </ion-card>
 
-        }
+            }
+        </div>
         }
         <!--Se muestra promociones-->
         @if(paso===3){
-        <h2>Proximamente :v</h2>
-        }
-        <!--Se muestran avisos-->
-        @if(paso===4){
-        <h2>Proximamente :v</h2>
+
+        <div class="productos-grid">
+            @for (p of destacados; track p.id) {
+            <ion-card>
+                <img [src]="p.img" [alt]="p.alt" />
+
+                <ion-card-header>
+                    <ion-card-title>{{ p.nombre }}</ion-card-title>
+
+                    <ion-card-subtitle>
+                        Precio: ${{ p.precio }}
+                    </ion-card-subtitle>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <span class="etiqueta-destacado">
+                        ⭐ Producto destacado
+                    </span>
+                </ion-card-content>
+            </ion-card>
+            }
+        </div>
         }
         
+        <!--Se muestran avisos-->
+        @if(paso===4){
+        <div class="lista-avisos">
+            @for (aviso of Avisos; track aviso.id) {
+            <article class="aviso">
+                <span>{{ aviso.categoria }}</span>
+                <h2>{{ aviso.titulo }}</h2>
+                <p>{{ aviso.descripcion }}</p>
+                <small>{{ aviso.fecha }}</small>
+
+
+            </article>
+            }
+        </div>
+        }
+
     </div>
 </ion-content>

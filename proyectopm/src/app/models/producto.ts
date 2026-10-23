@@ -6,6 +6,7 @@ export interface Producto {
     disponibilidad:boolean;
     oferta:boolean;
     descuento?:number;
+    destacado:boolean;
     img:string;
     alt:string;
 

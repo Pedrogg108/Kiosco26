@@ -1,13 +1,80 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>registro</ion-title>
-  </ion-toolbar>
+  <img src="assets/Imagenes/logoCet30.png" alt="logoCet30">
+  <h1 class="titulo">Kiosco Escolar</h1>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">registro</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <form [formGroup]="formularioRegistro">
+    <i routerLink="/preinicio" class="bi bi-arrow-left"></i>
+    <h1>Registro</h1>
+   
+    <label>Nombre</label>
+    <input type="text" placeholder="Ingrese su nombre real" formControlName="nombre">
+    @if(formularioRegistro.controls.nombre.invalid && formularioRegistro.controls.nombre.touched){
+
+      @if(formularioRegistro.controls.nombre.hasError('required')){
+        <small>Este campo es obligatorio</small>
+      }
+      @else if(formularioRegistro.controls.nombre.hasError('pattern')){
+        <small>No se permite ingresar numeros o caracteres</small>
+      }
+    }
+
+    <label>Apellido</label>
+    <input type="text" placeholder="Ingrese su Apellido" formControlName="apellido">
+
+    @if(formularioRegistro.controls.apellido.invalid && formularioRegistro.controls.apellido.touched){
+      @if(formularioRegistro.controls.apellido.hasError('required')){
+        <small>Este campo es obligatorio</small>
+      }
+      @else if(formularioRegistro.controls.apellido.hasError('pattern')){
+        <small>No se permite ingresar numeros o caracteres</small>
+      }
+    }
+
+    <label>Telefono</label>
+    <input type="text" placeholder="Ej: 299-123-4567" formControlName="telefono">
+    
+    @if(formularioRegistro.controls.telefono.invalid && formularioRegistro.controls.telefono.touched){
+      @if(formularioRegistro.controls.telefono.hasError('required')){
+        <small>Este campo es obligatorio</small>
+      }
+      @else if(formularioRegistro.controls.telefono.hasError('pattern')){
+        <small>Solo se permite ingresar numeros</small>
+      }
+    }
+
+    <label>Correo</label>
+    <input type="text" placeholder="Ej: correoelectronico@gmail.com" formControlName="correo">
+
+    @if(formularioRegistro.controls.correo.invalid && formularioRegistro.controls.correo.touched){
+      @if (formularioRegistro.controls.correo.hasError('required')){
+        <small>Este campo es obligatorio</small>
+      }
+      @else if(formularioRegistro.controls.correo.hasError('email')){
+        <small>Ingrese un correo valido</small>
+      }
+    }
+
+    <label>Contraseña</label>
+    <input type="password" placeholder="Ingrese un contraseña segura" formControlName="contra" id="contraseña">
+    <label class="mostrar-password">
+      <input type="checkbox" onclick="contraseña.type=this.checked ? 'text' : 'password'"> Mostrar contraseña
+    </label>
+
+    @if(formularioRegistro.controls.contra.invalid && formularioRegistro.controls.contra.touched){
+      @if(formularioRegistro.controls.contra.hasError('required')){
+        <small>Este campo es obligatorio</small>
+      }
+      @else if(formularioRegistro.controls.contra.hasError('minlength')){
+        <small>La contraseña debe tener minimo 7 caracteres</small>
+      }
+      @else if(formularioRegistro.controls.contra.hasError('pattern')){
+        <small>La contraseña debe incluir al menos una mayuscula y un caracter especial</small>
+      }
+    }
+
+    <button type="submit" [disabled]="formularioRegistro.invalid" type="submit" routerLink="/home">Iniciar Sesion</button>
+  </form>
 </ion-content>

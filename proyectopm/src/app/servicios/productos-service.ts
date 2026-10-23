@@ -12,6 +12,7 @@ export class ProductosService {
       disponibilidad: true,
       oferta: false,
       descuento: 0,
+      destacado:true,
       img: "../assets/Imagenes/lataCocaCola.png",
       alt: "Lata de Coca Cola 354mL"
     },
@@ -23,6 +24,7 @@ export class ProductosService {
       disponibilidad: true,
       oferta: false,
       descuento: 0,
+      destacado:false,
       img: "../assets/Imagenes/alfajorRastaNegro.jpg",
       alt: "Alfajor Rasta Negro"
     },
@@ -34,6 +36,7 @@ export class ProductosService {
       disponibilidad: true,
       oferta: true,
       descuento: 20,
+      destacado:true,
       img: "../assets/Imagenes/saladixSnacks.png",
       alt: "Saladix Papas Fritas 50g"
     },
@@ -45,6 +48,7 @@ export class ProductosService {
       disponibilidad: true,
       oferta: false,
       descuento: 0,
+      destacado:false,
       img: "../assets/Imagenes/chupetin.png",
       alt: "Chupetin Blueberry"
     },
@@ -56,6 +60,7 @@ export class ProductosService {
       disponibilidad: true,
       oferta: false,
       descuento: 0,
+      destacado:false,
       img: "../assets/Imagenes/fizzExtreme.png",
       alt: "Fizz Extreme"
     },
@@ -66,6 +71,7 @@ export class ProductosService {
       disponibilidad: true,
       oferta: true,
       descuento: 15,
+      destacado:false,
       img: "../assets/Imagenes/barraBonOBonXL.png",
       alt: "Fizz Extreme"
     },
@@ -76,6 +82,7 @@ export class ProductosService {
       disponibilidad: true,
       oferta: false,
       descuento: 0,
+      destacado:true,
       img: "../assets/Imagenes/juguitoBaggio.jpg",
       alt: "Juguito Baggio 125mL"
     }
@@ -109,5 +116,9 @@ export class ProductosService {
    */
   get ofertasActivas(): Producto[] {
     return this.Productos.filter(p => p.oferta);
+  }
+
+  get destacados():Producto[]{
+    return this.Productos.filter(p=>p.destacado);
   }
 }
