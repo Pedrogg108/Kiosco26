@@ -35,10 +35,6 @@ export const routes: Routes = [
     loadComponent: () => import('./paginas/mas-opciones/mas-opciones.page').then(m => m.MasOpcionesPage)
   },
   {
-    path: 'productos',
-    loadComponent: () => import('./paginas/productos/productos.page').then(m => m.ProductosPage)
-  },
-  {
     path: 'preinicio',
     loadComponent: () => import('./auth/preinicio/preinicio.page').then(m => m.PreinicioPage)
   },

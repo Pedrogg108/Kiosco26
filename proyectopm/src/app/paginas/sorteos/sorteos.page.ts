@@ -5,7 +5,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/stan
 import Swal from 'sweetalert2';
 
 
-interface Sorteo {
+interface Sorteo {//se crea una interface en la cual se basara el arreglo de productosSorteos
   id: number,
   titulo: string,
   descripcion: string,
@@ -31,7 +31,7 @@ export class SorteosPage implements OnInit {
   activo = true;
   constructor() { }
 
-  productosSorteos: Sorteo[] = [
+  productosSorteos: Sorteo[] = [//se crea el arrglo productosSorteos basado en la interfaz Sorteo
     {
       id: 1,
       titulo: "Promo Dulce",
@@ -47,7 +47,7 @@ export class SorteosPage implements OnInit {
       id: 2,
       titulo: "Unas Saladix y 2 alfajores",
       descripcion: "Incluye un Saladix y 2 alfajores a eleccion",
-      img: "../assets/Imagenes/caramelos.png",
+      img: "../assets/Imagenes/combo2.jpeg",
       alt: "Promo Saladix+Alfajores",
       fechaInicio: "11-10-2026",
       fechaCierre: "31-10-2026",
@@ -55,7 +55,7 @@ export class SorteosPage implements OnInit {
       participando: false
     }
   ]
-  sorteoParticipando: Sorteo[] = []
+  sorteoParticipando: Sorteo[] = []//se crea otro arreglo llamado sorteoParticipando basado en la interfaz Sorteo para guardar los sorteos a los que el usuario esta participando
 
   ngOnInit() {
   }
@@ -64,21 +64,21 @@ export class SorteosPage implements OnInit {
   //   return 1
   // }
   get participando() {
-    return this.sorteoParticipando
+    return this.sorteoParticipando//Se retorna el arreglo SorteoParticipando
   }
   get sorteosDisponibles(): Sorteo[] {
-    return this.productosSorteos.filter(p => !p.participando);
+    return this.productosSorteos.filter(p => !p.participando);//filtra los sorteos por los cual aun no esta participando
   }
   get sorteosParticipando(): Sorteo[] {
-    return this.productosSorteos.filter(p => p.participando)
+    return this.productosSorteos.filter(p => p.participando)//filtra los sorteos por los cual si esta participando
   }
 
-  participarSorteo(p: Sorteo) {
+  participarSorteo(p: Sorteo) {//recibe como parametro el sorteo basado en la interfaz Sorteo
 
     if (p) {
-      this.sorteoParticipando.push(p)
-      p.participantes++
-      p.participando = true
+      this.sorteoParticipando.push(p)//metete el objeto al arreglo sorteoParticipando
+      p.participantes++//aumenta los participantes del sorteo
+      p.participando = true//ahora si esta participando 
     }
 
     Swal.fire({

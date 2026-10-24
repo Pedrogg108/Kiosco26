@@ -27,7 +27,7 @@
     </div>
 
     <!-- Modal de editar perfil -->
-    <ion-modal [isOpen]="modalEditarPerfil" (didDismiss)="modalEditarPerfil = false">
+    <ion-modal [isOpen]="modalEditarPerfil" (didDismiss)="modalEditarPerfil = false"><!--didDismiss:Detecta que el modal terminó de cerrarse.-->
 
       <ng-template>
         <ion-header>
@@ -139,7 +139,7 @@
     </ion-modal>
 
     <!-- Cerrar sesión -->
-    <div class="cerrarSesion" (click)="cerrarSesion()">
+    <div class="cerrarSesion" (click)="cerrarSesion()"><!--Al darle click llama al metodo cerrarSesion-->
       <i class="bi bi-box-arrow-right"></i>
       <div>
         <span><strong>Cerrar Sesión</strong></span>

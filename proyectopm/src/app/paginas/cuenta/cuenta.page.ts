@@ -2,19 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {
-  IonContent,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
-  IonModal,
-  IonButtons,
-  IonButton,
-  IonItem,
-  IonInput
-} from '@ionic/angular/standalone';
-
-import Swal from 'sweetalert2';
+import {IonContent,IonHeader,IonTitle,IonToolbar,IonModal,IonButtons,IonButton,IonItem,IonInput} from '@ionic/angular/standalone';
+import Swal from 'sweetalert2'; //se importo la libreria sweetalert2 para poder usar mejores alerts
 import { Router } from '@angular/router';
 
 @Component({
@@ -41,12 +30,12 @@ export class CuentaPage implements OnInit {
   modalEditarPerfil = false;
 
   modalCambiarContrasena = false;
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   cerrarSesion() {
-    Swal.fire({
+    Swal.fire({ //swal.fire es un alert que viene importado de la libreria sweetalert2
       title: '¿Está seguro de que quiere cerrar sesión?',
       text: 'Tendrá que volver a iniciar sesión para ingresar.',
       heightAuto: false,
@@ -60,7 +49,7 @@ export class CuentaPage implements OnInit {
         container: 'swal-on-top'
       }
     }).then((result) => {
-      if (result.isConfirmed) {
+      if (result.isConfirmed) {//si se acepta cambia a la ruta de preinicio
         this.router.navigate(['/preinicio']);
       }
     });

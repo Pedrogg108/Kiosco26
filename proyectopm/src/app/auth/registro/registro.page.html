@@ -5,18 +5,18 @@
 
 <ion-content [fullscreen]="true">
 
-  <form [formGroup]="formularioRegistro">
+  <form [formGroup]="formularioRegistro"><!--[formGroup]: Se conecta este formulario html con el formulario reactivo definido en el TS-->
     <i routerLink="/preinicio" class="bi bi-arrow-left"></i>
     <h1>Registro</h1>
    
     <label>Nombre</label>
     <input type="text" placeholder="Ingrese su nombre real" formControlName="nombre">
-    @if(formularioRegistro.controls.nombre.invalid && formularioRegistro.controls.nombre.touched){
+    @if(formularioRegistro.controls.nombre.invalid && formularioRegistro.controls.nombre.touched){<!--Si el campo nombre es invalido y ya se interactuo entonces-->
 
-      @if(formularioRegistro.controls.nombre.hasError('required')){
+      @if(formularioRegistro.controls.nombre.hasError('required')){<!--Si en el campo nombre no se ingreso nada entonces muestra el siguiene mensaje-->
         <small>Este campo es obligatorio</small>
       }
-      @else if(formularioRegistro.controls.nombre.hasError('pattern')){
+      @else if(formularioRegistro.controls.nombre.hasError('pattern')){<!--Si el campo nombre tiene el error 'pattern' osea se ingresaron numero o caracteres entonces muestra el siguiene mensaje-->
         <small>No se permite ingresar numeros o caracteres</small>
       }
     }
@@ -24,11 +24,12 @@
     <label>Apellido</label>
     <input type="text" placeholder="Ingrese su Apellido" formControlName="apellido">
 
-    @if(formularioRegistro.controls.apellido.invalid && formularioRegistro.controls.apellido.touched){
-      @if(formularioRegistro.controls.apellido.hasError('required')){
+    @if(formularioRegistro.controls.apellido.invalid && formularioRegistro.controls.apellido.touched){<!--Si el campo apellido es invalido y ya se interactuo entonces-->
+
+      @if(formularioRegistro.controls.apellido.hasError('required')){<!--Si en el campo apellido no se ingreso nada entonces muestra el siguiene mensaje-->
         <small>Este campo es obligatorio</small>
       }
-      @else if(formularioRegistro.controls.apellido.hasError('pattern')){
+      @else if(formularioRegistro.controls.apellido.hasError('pattern')){<!--Si el campo apellido tiene el error 'pattern' osea se ingresaron numeros o caracteres entonces muestra el siguiene mensaje-->
         <small>No se permite ingresar numeros o caracteres</small>
       }
     }
@@ -36,11 +37,11 @@
     <label>Telefono</label>
     <input type="text" placeholder="Ej: 299-123-4567" formControlName="telefono">
     
-    @if(formularioRegistro.controls.telefono.invalid && formularioRegistro.controls.telefono.touched){
-      @if(formularioRegistro.controls.telefono.hasError('required')){
+    @if(formularioRegistro.controls.telefono.invalid && formularioRegistro.controls.telefono.touched){<!--Si el campo telefono es invalido y ya se interactuo entonces-->
+      @if(formularioRegistro.controls.telefono.hasError('required')){<!--Si en el campo telefono no se ingreso nada entonces muestra el siguiene mensaje-->
         <small>Este campo es obligatorio</small>
       }
-      @else if(formularioRegistro.controls.telefono.hasError('pattern')){
+      @else if(formularioRegistro.controls.telefono.hasError('pattern')){<!--Si el campo telefono tiene el error 'pattern' osea se ingreso algo que no son numeros entonces muestra el siguiene mensaje-->
         <small>Solo se permite ingresar numeros</small>
       }
     }
@@ -48,11 +49,11 @@
     <label>Correo</label>
     <input type="text" placeholder="Ej: correoelectronico@gmail.com" formControlName="correo">
 
-    @if(formularioRegistro.controls.correo.invalid && formularioRegistro.controls.correo.touched){
-      @if (formularioRegistro.controls.correo.hasError('required')){
+    @if(formularioRegistro.controls.correo.invalid && formularioRegistro.controls.correo.touched){<!--Si el campo correo es invalido y ya se interactuo entonces-->
+      @if (formularioRegistro.controls.correo.hasError('required')){<!--Si en el campo correo no se ingreso nada entonces muestra el siguiene mensaje-->
         <small>Este campo es obligatorio</small>
       }
-      @else if(formularioRegistro.controls.correo.hasError('email')){
+      @else if(formularioRegistro.controls.correo.hasError('email')){<!--Si en el campo correo se ingreso un email invalido(sin @) entonces muestra el mensaje-->
         <small>Ingrese un correo valido</small>
       }
     }
@@ -60,21 +61,21 @@
     <label>Contraseña</label>
     <input type="password" placeholder="Ingrese un contraseña segura" formControlName="contra" id="contraseña">
     <label class="mostrar-password">
-      <input type="checkbox" onclick="contraseña.type=this.checked ? 'text' : 'password'"> Mostrar contraseña
+      <input type="checkbox" onclick="contraseña.type=this.checked ? 'text' : 'password'"> Mostrar contraseña <!--Al darle click ocurre que, el type del input con el id="contra" cambiara SI se marco el checkbox a type='text' SINO entonces cambiara a type='password' -->
     </label>
 
-    @if(formularioRegistro.controls.contra.invalid && formularioRegistro.controls.contra.touched){
-      @if(formularioRegistro.controls.contra.hasError('required')){
+    @if(formularioRegistro.controls.contra.invalid && formularioRegistro.controls.contra.touched){ <!--Si el campo contra es invalido y ya se interactuo entonces-->
+      @if(formularioRegistro.controls.contra.hasError('required')){<!--Si en el campo contra no se ingreso nada entonces muestra el siguiene mensaje-->
         <small>Este campo es obligatorio</small>
       }
-      @else if(formularioRegistro.controls.contra.hasError('minlength')){
+      @else if(formularioRegistro.controls.contra.hasError('minlength')){<!--Si en el campo contra no se ingreso como minimo 7 caracteres entonces muestra el mensaje-->
         <small>La contraseña debe tener minimo 7 caracteres</small>
       }
-      @else if(formularioRegistro.controls.contra.hasError('pattern')){
+      @else if(formularioRegistro.controls.contra.hasError('pattern')){<!--Si el campo contra tiene el error 'pattern' osea la contraseña no cuenta con al menos una mayuscula y un caracter especial entonces muestra el siguiene mensaje-->
         <small>La contraseña debe incluir al menos una mayuscula y un caracter especial</small>
       }
     }
 
-    <button type="submit" [disabled]="formularioRegistro.invalid" type="submit" routerLink="/home">Iniciar Sesion</button>
+    <button type="submit"  [disabled]="formularioRegistro.invalid" type="submit" routerLink="/home">Registrarse</button> <!--El boton estara deshabilitado si el forumlario es invalido-->
   </form>
 </ion-content>

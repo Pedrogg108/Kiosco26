@@ -6,127 +6,127 @@
 
 <ion-content>
 
-  @if (!detalles) {
-    <h1>Ofertas</h1>
+  @if (!detalles) {<!--Si es lo contrario de destalles entonces-->
+  <h1>Ofertas</h1>
 
-    <div class="filtros">
-      <div [class.activo]="activo">
-        <button (click)="activo = true">Activas</button>
-      </div>
-      <div [class.activo]="!activo">
-        <button (click)="activo = false">Canjeadas</button>
-      </div>
+  <div class="filtros">
+    <div [class.activo]="activo"><!--Obtiene la clase activo cuando la variable es true-->
+      <button (click)="activo = true">Activas</button>
     </div>
-
-    <div class="ofertas">
-
-      <!-- ========== OFERTAS ACTIVAS ========== -->
-      @if (activo) {
-        @if (ofertasActivas.length === 0) {
-          <p class="seccionVacia">Sin ofertas activas</p>
-        } @else {
-          @for (p of ofertasActivas; track p.id) {
-            <div class="ofertasCard">
-              <div>
-                <img [src]="p.img" [alt]="p.nombre">
-                <div>
-                  <p class="ofertas">Oferta activa</p>
-                  <h4><strong>¡{{ p.descuento }}% OFF en {{ p.nombre }}!</strong></h4>
-                  <p>Por tiempo limitado</p>
-                </div>
-              </div>
-
-              <div class="datos">
-                <div class="timer">
-                  <i class="bi bi-stopwatch"></i>
-                  <p>Finaliza el:<br><strong>26/10/2026</strong></p>
-                </div>
-              </div>
-
-              <button (click)="detallesOferta(p)">Ver oferta</button>
-            </div>
-          }
-        }
-      }
-
-      <!-- ========== OFERTAS CANJEADAS ========== -->
-      @if (!activo) {
-        @if (ofertasCanjeadas.length === 0) {
-          <p class="seccionVacia">No has canjeado ninguna oferta todavía</p>
-        } @else {
-          @for (p of ofertasCanjeadas; track p.id) {
-            <div class="ofertasCard">
-              <div>
-                <img [src]="p.img" [alt]="p.nombre">
-                <div>
-                  <p class="ofertas">Oferta canjeada</p>
-                  <h4><strong>¡{{ p.descuento }}% OFF en {{ p.nombre }}!</strong></h4>
-                  <p>Por tiempo limitado</p>
-                </div>
-              </div>
-
-              <div class="datos">
-                <div class="timer">
-                  <i class="bi bi-stopwatch"></i>
-                  <p>Finaliza el:<br><strong>26/10/2026</strong></p>
-                </div>
-              </div>
-
-              <button style="background-color: #aeaeae;" disabled>
-                Oferta canjeada
-              </button>
-            </div>
-          }
-        }
-      }
-
+    <div [class.activo]="!activo"><!--Obtiene la clase activo cuando la variable es false-->
+      <button (click)="activo = false">Canjeadas</button>
     </div>
+  </div>
+
+  <div class="ofertas">
+
+    <!-- ========== OFERTAS ACTIVAS ========== -->
+    @if (activo) {
+    @if (ofertasActivas.length === 0) {<!--Si el arreglo esta vacio entonces muestra el siguente mensaje-->
+    <p class="seccionVacia">Sin ofertas activas</p>
+    } @else {
+    @for (p of ofertasActivas; track p.id) {<!--Por cada ofertaActiva muestra una card-->
+    <div class="ofertasCard">
+      <div>
+        <img [src]="p.img" [alt]="p.nombre">
+        <div>
+          <p class="ofertas">Oferta activa</p>
+          <h4><strong>¡{{ p.descuento }}% OFF en {{ p.nombre }}!</strong></h4>
+          <p>Por tiempo limitado</p>
+        </div>
+      </div>
+
+      <div class="datos">
+        <div class="timer">
+          <i class="bi bi-stopwatch"></i>
+          <p>Finaliza el:<br><strong>26/10/2026</strong></p>
+        </div>
+      </div>
+
+      <button (click)="detallesOferta(p)">Ver oferta</button><!--Al darle click llama a la funcion "detallesOferta" y le da como parametro el producto seleccionado(p)-->
+    </div>
+    }
+    }
+    }
+
+    <!-- ========== OFERTAS CANJEADAS ========== -->
+    @if (!activo) {
+    @if (ofertasCanjeadas.length === 0) {<!--Si el arreglo esta vacio entonces-->
+    <p class="seccionVacia">No has canjeado ninguna oferta todavía</p>
+    } @else {
+    @for (p of ofertasCanjeadas; track p.id) {<!--Por cada ofertacanjeada que esta en el arreglo muestra una card-->
+    <div class="ofertasCard">
+      <div>
+        <img [src]="p.img" [alt]="p.nombre">
+        <div>
+          <p class="ofertas">Oferta canjeada</p>
+          <h4><strong>¡{{ p.descuento }}% OFF en {{ p.nombre }}!</strong></h4>
+          <p>Por tiempo limitado</p>
+        </div>
+      </div>
+
+      <div class="datos">
+        <div class="timer">
+          <i class="bi bi-stopwatch"></i>
+          <p>Finaliza el:<br><strong>26/10/2026</strong></p>
+        </div>
+      </div>
+
+      <button style="background-color: #aeaeae;" disabled>
+        Oferta canjeada
+      </button>
+    </div>
+    }
+    }
+    }
+
+  </div>
   }
 
   <!-- ========== DETALLES DE LA OFERTA ========== -->
-  @if (detalles && enOferta; as oferta) {
-    <div class="detallesOfertas">
-      <div class="detalles">
-        <div class="header-details">
-          <button (click)="cerrarDetalles()">
-            <i class="bi bi-arrow-left"></i>
-          </button>
-          <h2>Detalles de la oferta</h2>
-        </div>
+  @if (detalles && enOferta; as oferta) {<!--Si las variables detalles y enOferta son true-->
+  <div class="detallesOfertas">
+    <div class="detalles">
+      <div class="header-details">
+        <button (click)="cerrarDetalles()"><!--Al darle click llama a la funcion "cerrarDetalles()"-->
+          <i class="bi bi-arrow-left"></i>
+        </button>
+        <h2>Detalles de la oferta</h2>
+      </div>
 
-        <img [src]="oferta.img" [alt]="oferta.nombre">
+      <img [src]="oferta.img" [alt]="oferta.nombre">
 
-        <div>
-          <p><strong>¡{{ oferta.descuento }}% OFF en {{ oferta.nombre }}!</strong></p>
-          <p>Por tiempo limitado. Válido en productos seleccionados del kiosco</p>
+      <div>
+        <p><strong>¡{{ oferta.descuento }}% OFF en {{ oferta.nombre }}!</strong></p>
+        <p>Por tiempo limitado. Válido en productos seleccionados del kiosco</p>
 
-          <div class="datos-datalles">
-            <div class="timer">
-              <i class="bi bi-stopwatch"></i>
-              <p>Finaliza el:<br><strong>26/10/2026</strong></p>
-            </div>
+        <div class="datos-datalles">
+          <div class="timer">
+            <i class="bi bi-stopwatch"></i>
+            <p>Finaliza el:<br><strong>26/10/2026</strong></p>
+          </div>
 
-            <div class="precioFinal">
-              <i class="bi bi-tag-fill"></i>
-              <p>
-                Precio Final:<br>
-                <strong>$ {{ precioFinal | number:'1.0-2' }}</strong>
-              </p>
-            </div>
+          <div class="precioFinal">
+            <i class="bi bi-tag-fill"></i>
+            <p>
+              Precio Final:<br>
+              <strong>$ {{ precioFinal | number:'1.0-2' }}</strong><!--Muestra el precio final con minimo un digito entero,minimo 0 decimales y maximo 2 decimales-->
+            </p>
           </div>
         </div>
-
-        <div class="condiciones">
-          <ul>
-            <li>Válido solo en el kiosco del colegio</li>
-            <li>No acumulable con otras promociones</li>
-            <li>algo nose</li>
-          </ul>
-        </div>
-
-        <button (click)="canjearOferta(oferta)">Canjear oferta</button>
       </div>
+
+      <div class="condiciones">
+        <ul>
+          <li>Válido solo en el kiosco del colegio</li>
+          <li>No acumulable con otras promociones</li>
+          <li>algo nose</li>
+        </ul>
+      </div>
+
+      <button (click)="canjearOferta(oferta)">Canjear oferta</button><!--Al darle click llama a la funcion canjearOferta y le manda el producto como parametro-->
     </div>
+  </div>
   }
 
 </ion-content>

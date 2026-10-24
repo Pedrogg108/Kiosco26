@@ -4,7 +4,7 @@ import { Producto } from '../models/producto';
   providedIn: 'root',
 })
 export class ProductosService {
-  Productos: Producto[] = [
+  Productos: Producto[] = [//arreglo Productos basado en la interfaz Producto
     {
       id: 1,
       nombre: "Lata de Coca Cola 354mL",
@@ -73,7 +73,7 @@ export class ProductosService {
       descuento: 15,
       destacado:false,
       img: "../assets/Imagenes/barraBonOBonXL.png",
-      alt: "Fizz Extreme"
+      alt: "barra de bon o bon"
     },
     {
       id: 7,
@@ -87,10 +87,8 @@ export class ProductosService {
       alt: "Juguito Baggio 125mL"
     }
   ]
-  /**
-   * Array que almacena las ofertas que el usuario ya canjeó.
-   * Se usa para mostrar el historial de canjes en la pestaña "Canjeadas" de la seccion ofertas.
-   */
+  //El arreglo ofertasCanjeadas almacenara las ofertas que el usuario ya canjeo
+  // Se usa para mostrar el historial de canjes en la pestaña "Canjeadas" de la seccion ofertas.
   ofertasCanjeadas: Producto[] = [];
 
   /**
@@ -102,23 +100,21 @@ export class ProductosService {
    * 
    * for producto Producto/oferta que se desea canjear
    */
-  canjearOferta(producto: Producto): void {
+  canjearOferta(producto: Producto): void {//recibe como parametro el producto a canjear
     // Evitar canjear dos veces
     if (!producto.oferta) return;
 
     producto.oferta = false;
-    this.ofertasCanjeadas.push(producto);
+    this.ofertasCanjeadas.push(producto);//agrega el producto al arreglo ofertasCanjeadas
   }
 
-  /**
-   * Getter que devuelve solo las ofertas que todavía están activas.
-   * Útil para mostrar la lista de ofertas disponibles.
-   */
+  //Getter que devuelve solo las ofertas que todavía están activas.
+   
   get ofertasActivas(): Producto[] {
     return this.Productos.filter(p => p.oferta);
   }
 
   get destacados():Producto[]{
-    return this.Productos.filter(p=>p.destacado);
+    return this.Productos.filter(p=>p.destacado);//devuelve solo los productos que estan destacados
   }
 }

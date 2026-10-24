@@ -4,7 +4,7 @@ import { Aviso } from '../models/aviso';
   providedIn: 'root',
 })
 export class Avisos {
-  avisos:Aviso[]=[
+  avisos:Aviso[]=[//arreglo de avisos basado en la interfaz Aviso
     {
       id:1,
       titulo:"Nuevo horario",

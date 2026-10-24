@@ -7,20 +7,20 @@
 <ion-content>
   <h1><strong>Sorteos</strong></h1>
   <div class="filtros">
-    <div [class.activo]="activo === true">
-      <button (click)="activo=true">Activos</button>
+    <div [class.activo]="activo === true"><!--Se le da la class activo cuando la variable activo es igual a true-->
+      <button (click)="activo=true">Activos</button><!--Al darle click la variable activo pasa a true-->
     </div>
-    <div [class.activo]="activo === false">
-      <button (click)="activo=false">Participando</button>
+    <div [class.activo]="activo === false"><!--Se le da la class activo cuando la variable activo es igual a false-->
+      <button (click)="activo=false">Participando</button><!--Al darle click la variable activo pasa a false-->
     </div>
   </div>
   <div class="sorteos">
 
-    @if(activo===true){
-    @if(sorteosDisponibles.length===0){
+    @if(activo===true){<!--Si la variable activo es true entonces-->
+    @if(sorteosDisponibles.length===0){<!--si el arreglo de sorteosDisponibles esta vacio entonces muestra el siguiente mensaje-->
     <p class="mensaje-vacio">No hay Sorteos Disponibles</p>
     }@else{
-    @for(p of sorteosDisponibles; track p.id){
+    @for(p of sorteosDisponibles; track p.id){<!--Por cada sorteoDisponible muestra una card-->
 
     <div class="sorteoCard">
       <div>
@@ -44,26 +44,19 @@
 
 
       </div>
-      <button (click)="participarSorteo(p)">Participar</button>
+      <button (click)="participarSorteo(p)">Participar</button><!--Al darle click llama a la funcion participarSorteo y se le da el producto como parametro-->
     </div>
     }
     }
     }
 
 
-    @if(!activo ){
-    <!-- @if(sorteoParticipando.length===0){
-    <p>No esta participando en ningun sorteo</p>
-    }@else{
-
-
-    @for(p of productosSorteos; track p.id){
-    @if(p.participando){ -->
-
-    @if(sorteoParticipando.length === 0) {
+    @if(!activo ){<!--Si la variable es false entonces-->
+   
+    @if(sorteoParticipando.length === 0) {<!--Si el arreglo de sorteoParticipando esta vacio entonces muestra el siguiente mensaje-->
     <p class="mensaje-vacio">No estás participando en ningún sorteo</p>
     } @else {
-    @for(p of sorteoParticipando; track p.id) {
+    @for(p of sorteoParticipando; track p.id) {<!--Por cada objeto del arreglo sorteoParticipando crea una card-->
     <div class="sorteoCard">
       <div>
         <img src="{{p.img}}" alt="{{p.alt}}">

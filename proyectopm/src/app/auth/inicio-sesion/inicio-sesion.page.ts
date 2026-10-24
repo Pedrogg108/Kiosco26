@@ -18,19 +18,20 @@ export class InicioSesionPage implements OnInit {
   ngOnInit() {
   }
 
-  formularioInicioSesion = new FormGroup({
-    correo: new FormControl('', [
-      Validators.required,
-      Validators.email
+  formularioInicioSesion = new FormGroup({//se crea un nuevo formGroup con el nombre "formularioInicioSesion"
+    correo: new FormControl('', [//Se crearan controles para el correo
+      Validators.required,//valida que el campo tenga algo, osea que es obligatorio
+      Validators.email//valida que el campo sea un email valido osea con el @
     ]),
 
-    contra:new FormControl('',[
-      Validators.required,
-      Validators.minLength(7),
+    contra:new FormControl('',[//Se crearan controles para el contra
+      Validators.required,//valida que el campo tenga algo, osea que es obligatorio
+      Validators.minLength(7),//valida que el campo tenga como minimo 7 caracteres
 
     ]),
-    contra2:new FormControl('',[
-      Validators.required
+    contra2:new FormControl('',[//Se crearan controles para el contra2
+      Validators.required,//valida que el campo tenga algo, osea que es obligatorio
+      Validators.minLength(7)//valida que el campo tenga como minimo 7 caracteres
     ])
 })
 

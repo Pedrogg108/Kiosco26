@@ -7,26 +7,30 @@
 <ion-content>
     <div class="elementos">
         <div [class.activo]="paso === 1" (click)="paso = 1">
+            <!--Si la variable "paso" es igual a 1 el div adquiere la class activo  //// al darle click al div la variable "paso" sera igual a 1-->
             <button>Todos</button>
         </div>
 
         <div [class.activo]="paso === 2" (click)="paso = 2">
+            <!--Si la variable "paso" es igual a 2 el div adquiere la class activo  //// al darle click al div la variable "paso" sera igual a 2-->
             <button>Productos</button>
         </div>
 
         <div [class.activo]="paso === 3" (click)="paso = 3">
+            <!--Si la variable "paso" es igual a 3 el div adquiere la class activo  //// al darle click al div la variable "paso" sera igual a 3-->
             <button>Destacados</button>
         </div>
 
         <div [class.activo]="paso === 4" (click)="paso = 4">
+            <!--Si la variable "paso" es igual a 4 el div adquiere la class activo  //// al darle click al div la variable "paso" sera igual a 4-->
             <button>Avisos</button>
         </div>
     </div>
     <div class="contenido">
         <!--Se muestra todo-->
-        @if(paso===1){
+        @if(paso===1){<!--Si la variable paso es igual a 1 entonces:-->
         <div class="productos-grid">
-            @for(p of Productos; track p.id){
+            @for(p of Productos; track p.id){<!--Por cada producto traquando por id se creara una card-->
 
             <ion-card>
 
@@ -48,7 +52,7 @@
             }
         </div>
         <div class="lista-avisos">
-            @for (aviso of Avisos; track aviso.id) {
+            @for (aviso of Avisos; track aviso.id) {<!--Por cada aviso traqueando por id se creara un article-->
             <article class="aviso">
                 <span>{{ aviso.categoria }}</span>
                 <h2>{{ aviso.titulo }}</h2>
@@ -62,7 +66,7 @@
 
 
         <div class="productos-grid">
-            @for (p of destacados; track p.id) {
+            @for (p of destacados; track p.id) {<!--Por cada destacado traqueando por id se creara una card-->
             <ion-card>
                 <img [src]="p.img" [alt]="p.alt" />
 
@@ -85,9 +89,9 @@
         }
 
         <!--Se muestran todos los productos-->
-        @if(paso===2){
+        @if(paso===2){<!--Si la variable paso es igual a 2 entonces-->
         <div class="productos-grid">
-            @for(p of Productos; track p.id){
+            @for(p of Productos; track p.id){<!--Por cada producto traquando por id se creara una card-->
 
             <ion-card>
 
@@ -113,7 +117,7 @@
         @if(paso===3){
 
         <div class="productos-grid">
-            @for (p of destacados; track p.id) {
+            @for (p of destacados; track p.id) {<!--Por cada destacado traqueando por id se creara una card-->
             <ion-card>
                 <img [src]="p.img" [alt]="p.alt" />
 
@@ -134,11 +138,11 @@
             }
         </div>
         }
-        
+
         <!--Se muestran avisos-->
-        @if(paso===4){
+        @if(paso===4){<!--Si la variable paso es igual a 4-->
         <div class="lista-avisos">
-            @for (aviso of Avisos; track aviso.id) {
+            @for (aviso of Avisos; track aviso.id) {<!--Por cada aviso traqueando por id se creara un article-->
             <article class="aviso">
                 <span>{{ aviso.categoria }}</span>
                 <h2>{{ aviso.titulo }}</h2>

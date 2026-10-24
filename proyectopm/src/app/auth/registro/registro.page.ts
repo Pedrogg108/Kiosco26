@@ -17,46 +17,32 @@ export class RegistroPage implements OnInit {
 
   ngOnInit() {
   }
-  formularioRegistro = new FormGroup({
+  formularioRegistro = new FormGroup({//se crea un nuevo formGroup con el nombre "formularioRegistro"
     nombre: new FormControl('', [
-      Validators.required,
-      Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/)
+      Validators.required,//valida que el campo tenga algo, osea que es obligatorio
+      Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/)//valida que el campo tenga solo letras
     ]),
 
     apellido: new FormControl('', [
-      Validators.required,
-      Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/)
+      Validators.required,//valida que el campo tenga algo, osea que es obligatorio
+      Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/)//valida que el campo tenga solo letras
     ]),
 
     telefono: new FormControl('', [
-      Validators.required,
-      Validators.pattern(/^[0-9]+$/)
+      Validators.required,//valida que el campo tenga algo, osea que es obligatorio
+      Validators.pattern(/^[0-9]+$/)//valida que el campo tenga solo numeros
     ]),
 
     correo:new FormControl('',[
-      Validators.required,
-      Validators.email
+      Validators.required,//valida que el campo tenga algo, osea que es obligatorio
+      Validators.email//valida que el campo sea un email valido osea con el @
     ]),
 
     contra:new FormControl('',[
-      Validators.required,
-      Validators.minLength(7),
+      Validators.required,//valida que el campo tenga algo, osea que es obligatorio
+      Validators.minLength(7),//valida que el campo tenga como minimo 7 caracteres
       Validators.pattern(/^(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).*$/)//Verifica que el campo contenga una mayúscula y un carácter especial
     ])
   })
-   registrarse() {
-
-    // Marca todos los campos como tocados
-    this.formularioRegistro.markAllAsTouched();
-
-    // Si hay algún campo inválido, no continúa
-    if (this.formularioRegistro.invalid) {
-      return;
-    }
-
-    console.log('Formulario válido');
-    console.log(this.formularioRegistro.value);
-
-
-  }
+   
 }

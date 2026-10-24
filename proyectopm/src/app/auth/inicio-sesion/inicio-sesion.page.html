@@ -5,17 +5,17 @@
 
 <ion-content [fullscreen]="true">
 
-  <form [formGroup]="formularioInicioSesion">
+  <form [formGroup]="formularioInicioSesion"><!--[formGroup]: Se conecta este formulario html con el formulario reactivo definido en el TS-->
     <i routerLink="/preinicio" class="bi bi-arrow-left"></i>
     <h1>Inicio de Sesion</h1>
 
     <label>Correo Electronico</label>
     <input type="text" placeholder="Ingrese el correo de su cuenta" formControlName="correo">
-    @if(formularioInicioSesion.controls.correo.invalid && formularioInicioSesion.controls.correo.touched){
-    @if(formularioInicioSesion.controls.correo.hasError('required')){
+    @if(formularioInicioSesion.controls.correo.invalid && formularioInicioSesion.controls.correo.touched){ <!--Si el campo correo es invalido y ya se interactuo entonces-->
+    @if(formularioInicioSesion.controls.correo.hasError('required')){<!--Si en el campo correo no se ingreso nada entonces muestra el siguiene mensaje-->
     <small>Ingrese su correo</small>
     }
-    @else if(formularioInicioSesion.controls.correo.hasError('email')){
+    @else if(formularioInicioSesion.controls.correo.hasError('email')){<!--Si en el campo correo se ingreso un email invalido(sin @) entonces muestra el mensaje-->
     <small>Ingrese un correo valido</small>
     }
     }
@@ -24,13 +24,13 @@
     <label>Contraseña</label>
     <input type="password" placeholder="Ingrese su contraseña" formControlName="contra" id="contra">
     <label class="mostrar-password">
-      <input type="checkbox" onclick="contra.type=this.checked ? 'text' : 'password'"> Mostrar contraseña
+      <input type="checkbox" onclick="contra.type=this.checked ? 'text' : 'password'"> Mostrar contraseña <!--Al darle click ocurre que, el type del input con el id="contra" cambiara SI se marco el checkbox a type='text' SINO entonces cambiara a type='password' -->
     </label>
-    @if(formularioInicioSesion.controls.contra.invalid && formularioInicioSesion.controls.contra.touched){
-    @if(formularioInicioSesion.controls.contra.hasError('required')){
+    @if(formularioInicioSesion.controls.contra.invalid && formularioInicioSesion.controls.contra.touched){<!--Si el campo contra es invalido y ya se interactuo entonces-->
+    @if(formularioInicioSesion.controls.contra.hasError('required')){<!--Si en el campo contra no se ingreso nada entonces muestra el siguiene mensaje-->
     <small>Este campo es obligatorio</small>
     }
-    @else if(formularioInicioSesion.controls.contra.hasError('minlength')){
+    @else if(formularioInicioSesion.controls.contra.hasError('minlength')){<!--Si en el campo contra no se ingreso como minimo 7 caracteres entonces muestra el mensaje-->
     <small>La contraseña debe tener minimo 7 caracteres</small>
     }
 
@@ -38,18 +38,18 @@
     <label>Repita su contraseña</label>
     <input type="password" placeholder="Ingrese nuevamente su contraseña" formControlName="contra2" id="contra2">
     <label class="mostrar-password">
-      <input type="checkbox" onclick="contra2.type=this.checked ? 'text' : 'password'"> Mostrar contraseña
+      <input type="checkbox" onclick="contra2.type=this.checked ? 'text' : 'password'"> Mostrar contraseña <!--Al darle click ocurre que, el type del input con el id="contra2" cambiara SI se marco el checkbox a type='text' SINO entonces cambiara a type='password' -->
     </label>
-    @if(formularioInicioSesion.controls.contra2.invalid && formularioInicioSesion.controls.contra2.touched){
-    @if(formularioInicioSesion.controls.contra2.hasError('required')){
+    @if(formularioInicioSesion.controls.contra2.invalid && formularioInicioSesion.controls.contra2.touched){<!--Si el campo contra2 es invalido y ya se interactuo entonces-->
+    @if(formularioInicioSesion.controls.contra2.hasError('required')){<!--Si en el campo contra2 no se ingreso nada entonces muestra el siguiene mensaje-->
     <small>Este campo es obligatorio</small>
     }
-    @else if(formularioInicioSesion.controls.contra2.hasError('minlength')){
+    @else if(formularioInicioSesion.controls.contra2.hasError('minlength')){<!--Si en el campo contra no se ingreso como minimo 7 caracteres entonces muestra el mensaje-->
     <small>La contraseña debe tener minimo 7 caracteres</small>
     }
 
     }
 
-    <button>Continuar</button>
+    <button type="submit" [disabled]="formularioInicioSesion.invalid" type="submit" routerLink="/home">Continuar</button> <!--El boton estara deshabilitado si el forumlario es invalido-->
   </form>
 </ion-content>

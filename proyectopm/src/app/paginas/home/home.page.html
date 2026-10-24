@@ -1,5 +1,5 @@
 <ion-content>
-    <div class="swiper-container">
+    <div class="swiper-container"><!--Carrusel de ionic-->
 
         <div class="carousel">
 
@@ -25,41 +25,21 @@
         <h2>Encuentre su producto deseado</h2>
         <ion-searchbar placeholder="Buscar productos..." [debounce]="300"
             (ionInput)="buscarProducto($event)"></ion-searchbar>
-        <!-- <div class="categorias">
-
-            <div class="novedades">
-                <i class="bi bi-megaphone-fill"></i>
-                <p>Novedades</p>
-            </div>
-
-            <div class="sorteos">
-                <i class="bi bi-gift-fill"></i>
-                <p>Sorteos</p>
-            </div>
-
-            <div class="ofertas">
-                <i class="bi bi-currency-bitcoin"></i>
-                <p>Ofertas</p>
-            </div>
-
-            <div class="eventos">
-                <i class="bi bi-calendar2"></i>
-                <p>Eventos</p>
-            </div>
-
-        </div> -->
+        <!--[debounce]="300" : espera 300 milisegundo antes de actualizar la busqueda  -->
+        <!--(ionInput): evento de Ionic que ejecuta la funcion "buscarProducto($event)"-->
+        <!--($event): le pasa a la funcion informacion sobre el evento, incluido el texto ingresado-->
         <h2>
-            {{ textoBusqueda ? 'Resultados de búsqueda' : 'Productos destacados del Kiosco' }}
+            {{ textoBusqueda ? 'Resultados de búsqueda' : 'Productos destacados del Kiosco' }}<!--Si se busco algo se muestra el texto 'Resultados de tu busqueda' sino se muestra 'Productos destacados del Kiosco'-->
         </h2>
 
         <div class="destacados">
 
-            @if (productosFiltrados.length === 0) {
+            @if (productosFiltrados.length === 0) {<!--Si no se encontro ninguno producto filtrado/buscado entonces muestra el siguente texto-->
             <p class="sin-resultados">
                 No se encontraron productos.
             </p>
-            } @else {
-            @for (p of productosFiltrados; track p.id) {
+            } @else {<!--Si se encontraron productos entonces-->
+            @for (p of productosFiltrados; track p.id) {<!--Por cada producto filtrado traqueado por su id se mostrara una card -->
             <ion-card>
                 <img [src]="p.img" [alt]="p.alt" />
 
@@ -72,14 +52,14 @@
                 </ion-card-header>
 
                 <ion-card-content>
-                    Descrip
+                    {{p.alt}}
                 </ion-card-content>
             </ion-card>
             }
             }
 
         </div>
-        
+
 
     </div>
 

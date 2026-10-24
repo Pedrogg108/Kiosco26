@@ -14,6 +14,6 @@ export class AppComponent {
 
   router=inject(Router)
   mostrarMenu():boolean{
-    return !['/preinicio','/inicioSesion','/registro'].includes(this.router.url)
+    return !['/preinicio','/inicioSesion','/registro'].includes(this.router.url)//retorna false cuando esta en alguna de estas rutas
   }
 }

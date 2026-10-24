@@ -16,12 +16,12 @@ import Swal from 'sweetalert2';
 })
 export class OfertasPage implements OnInit {
 
-  
+
   detalles = false; /** Controla si se está mostrando la vista de detalle de una oferta */
 
-  
-  enOferta: Producto | null = null; /** Producto (oferta) que se está visualizando actualmente en el detalle */
 
+  enOferta: Producto | null = null; /// Producto (oferta) que se está visualizando actualmente en el detalle
+  //La variable enOferta puede guardar un Producto o ser null, empieza siendo null
   /** 
    * Controla el filtro de la lista:
    * - true  → muestra ofertas activas
@@ -29,15 +29,15 @@ export class OfertasPage implements OnInit {
    */
   activo = true;
 
-  constructor(private productosService: ProductosService) {}
+  constructor(private productosService: ProductosService) { }//se injecta el servicio ProductosService
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   // ========================
   // GETTERS
   // ========================
 
-  /** Lista completa de productos (viene del servicio) */
+  // Lista completa de productos (viene del servicio) 
   get Productos() {
     return this.productosService.Productos;
   }
@@ -48,9 +48,10 @@ export class OfertasPage implements OnInit {
    */
   get precioFinal(): number {
     return (this.enOferta?.precio ?? 0) * (1 - (this.enOferta?.descuento ?? 0) / 100);
+    //si el precio es null o undefined entonces utiliza 0////////si el descuento es null o undefined entonces utiliza 0
   }
 
-  /** Filtra solo las ofertas que todavía están activas */
+  // Filtra solo las ofertas que todavía están activas 
   get ofertasActivas() {
     return this.productosService.Productos.filter(p => p.oferta);
   }
